@@ -1,5 +1,5 @@
 <template>
-    <div id="header">
+    <div id="header" v-if="currentRoute != '/'+locale+'/login'" >
         <nuxt-link class="headerBtn" :to="'/' + locale">Home Page</nuxt-link>
         <div>
             <span class="headerBtn" v-if="locale === 'en'" @click="locale = 'zh'"
@@ -17,7 +17,22 @@ import { storeToRefs } from "pinia";
 import useGlobalStore from "../store/index";
 const { locale } = useI18n();
 const storeData = useGlobalStore();
+const route = useRoute();
 let { lan } = storeToRefs(storeData);
+let localPath = ref();
+localPath = locale._value;
+let currentRoute = ref();
+currentRoute = route.path
+
+console.log('localPath', localPath)
+// isLogin.value = false;
+// const checkLogin = () => {
+//     if (!isLogin.value) {
+//         router.push({ path: `${locale.value}/login` });
+//     }
+// };
+
+
 </script>
 <style lang="scss">
 #header {

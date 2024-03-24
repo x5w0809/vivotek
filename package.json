@@ -15,5 +15,10 @@
     "nuxt": "^3.7.0",
     "pinia": "^2.1.6",
     "sass": "^1.66.1"
+  },
+  "dependencies": {
+    "swiper": "^11.0.7",
+    "vue-awesome-swiper": "^5.0.1",
+    "vuetify": "^3.5.11"
   }
 }

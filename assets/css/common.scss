@@ -1,0 +1,16 @@
+* {
+    margin: 0;
+    padding: 0;
+    transition: all 0.2s ease;
+}
+
+html {
+    font-family: $fontfamily;
+}
+body {
+    background-color: $backgroundcolor;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 0;
+    margin: 0;
+}
