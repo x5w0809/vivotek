@@ -65,11 +65,6 @@ const emailData = ref();
 const idData = ref();
 const isLoading = ref();
 isLoading.value = false
-// const headers = {
-// Accept: 'application/json',
-// 'Content-type': 'application/json',
-// }
-// const  login  = await useAsyncData(() => $fetch('https://www.travel.taipei/open-api/zh-tw/Events/News?begin=1992-05-05&end=2023-08-05&page=1',{method: 'GET',headers: headers,}))
 const login = async () => {
   try {
     isLoading.value = true

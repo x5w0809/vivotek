@@ -2,5 +2,10 @@
     "loginDes": "立即參加品牌活動 等你來體驗！",
     "loginEmail": "VIVOTEK Email address",
     "loginId": "VIVOTEK  員工編號",
-    "loginBtn": "登入"
+    "loginBtn": "登入",
+    "homePage": "首頁",
+    "profilePage": "個人資訊",
+    "logout": "登出",
+    "footerTerm": "※主辦單位保有最終修改、變更、活動解釋及取消本活動之權利，若有相關異動將會公告於網站，恕不另行通知。",
+    "copyright": "© VIVOTEK Inc. All rights reserved."
 }
