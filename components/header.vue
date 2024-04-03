@@ -52,11 +52,12 @@ console.log('localPath', localPath)
 
 </script>
 <style lang="scss" scoped>
-.py-2{
-    padding-top: 0 !important;
-}
 #headerBar {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    z-index: 999;
     background-color: #465AFF;
     height: 64px;
     display: flex;
@@ -79,9 +80,7 @@ console.log('localPath', localPath)
             display: flex;
             .headerBtnBox{
                 position: relative;
-                //padding: 0 24px;
                 .headerBtn{
-                    //position: relative;
                     text-align: center;
                     padding: 2px 24px;
                     margin-right:-1px;

@@ -35,13 +35,13 @@ currentRoute = route.path
 </script>
 <style lang="scss" scoped>
 #footer {
-    position: absolute;
+    position: relative;
     width: 100%;
     background-color: #ffffff;
     bottom: 0;
     left: 0;
     .wrap{
-      margin: 80px 0;
+      padding: 80px 0;
       .term{
         padding: 0 10px;
         text-align: center;

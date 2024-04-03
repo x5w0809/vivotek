@@ -50,7 +50,6 @@
                     v-if="isLoading"
                 ></v-progress-circular>
             </div>
-            
         </div>
     </div>
 </template>

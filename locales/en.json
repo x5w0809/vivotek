@@ -7,5 +7,15 @@
     "profilePage": "Profile",
     "logout": "Logout",
     "footerTerm": "※主辦單位保有最終修改、變更、活動解釋及取消本活動之權利，若有相關異動將會公告於網站，恕不另行通知。",
-    "copyright": "© VIVOTEK Inc. All rights reserved."
+    "copyright": "© VIVOTEK Inc. All rights reserved.",
+    "profile":{
+        "title": "personal information",
+        "employeeId": "Employee Id",
+        "email": "E-mail",
+        "zhName": "Chinese Name",
+        "enName":"English Name",
+        "phone":"Cell Phome",
+        "homeTel":"Home Telphone",
+        "submit": "submit"
+    }
 }

@@ -15,22 +15,13 @@ const loginToken = (params: any) => {
   };
 
 /**
- * @description 分页查询员工数据
- * @return 员工信息
+ * 員工資料
+ * @returns
  */
 
-const URL = "/staff";
-const getStaffInfoByPage = (params: any) => {
-  return httpRequest.get(URL, params);
+const profileURL = "/api/my/profile";
+const getPersonalInfo = (params: any) => {
+  return httpRequest.get(profileURL, params);
 };
 
-/**
- * @description 修改员工数据
- * @param {any} data
- * @returns {any}
- */
-const updateStaffInfo = (data: any) => {
-  return httpRequest.post(URL, data);
-};
-
-export { getStaffInfoByPage, updateStaffInfo, loginToken };
+export { getPersonalInfo, loginToken };
