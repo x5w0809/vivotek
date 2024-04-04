@@ -32,7 +32,7 @@ class ApiSettings {
      * @param {boolean} auth 是否需要檢查登入token
      * @returns {U} Promise
      */
-    get<U = any>(auth: boolean = false) {
+    get<U = any>(auth: boolean = true) {
       const apiPath = this.getApiPath()
       const defaultOptions = this.getDefaultOptions()
       return async (app: { $vivotekApiInAuth: { get: (arg0: { apiPath: string; options: any }) => U | PromiseLike<U> }; $vivotekApi: { $get: (arg0: string, arg1: any) => U | PromiseLike<U> } }, options?: any): Promise<U> => {

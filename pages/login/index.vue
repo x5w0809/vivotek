@@ -76,7 +76,6 @@ const login = async () => {
         access_token.value = res.data._value.access_token
         isLoading.value = false
         location.href = `/${locale.value}`
-        // router.push({ path: `${locale.value}`});
     }else {
         alert('登入失敗')
         isLoading.value = false

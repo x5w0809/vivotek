@@ -1,6 +1,7 @@
 import { VivotekApi } from '@/api'
 import LoginRequestModel from '@/models/api/account/LoginRequestModel'
 import LoginResponseModel from '@/models/api/account/LoginResponseModel'
+import { UseFetchOptions } from 'nuxt/app';
 import httpRequest from "~/service";
 
 
@@ -20,8 +21,8 @@ const loginToken = (params: any) => {
  */
 
 const profileURL = "/api/my/profile";
-const getPersonalInfo = (params: any) => {
-  return httpRequest.get(profileURL, params);
+const getPersonalInfo = (params: any, options?:any) => {
+  return httpRequest.get(profileURL, params,options);
 };
 
 export { getPersonalInfo, loginToken };

@@ -13,18 +13,10 @@ const { locale, setLocale } = useI18n();
 // const storeData = useGlobalStore()
 // storeData.lan = ''
 //const  news  = await useAsyncData(() => $fetch('https://www.travel.taipei/open-api/en/Events/News?begin=1992-05-05&end=2023-08-05&page=1',{method: 'GET',headers: headers,}))
-const isLogin = ref();
-let localPath = ref();
-localPath = locale._value;
-// isLogin.value = false;
-// const checkLogin = () => {
-//     if (!isLogin.value) {
-//         router.push({ path: `${locale.value}/login` });
-//     }
-// };
-// onMounted(() => {
-//     checkLogin();
-// });
+//檢查是否登入成功
+const { $checkLogin } = useNuxtApp()
+const checkLogin = await $checkLogin()
+//檢查是否登入成功-end
 </script>
 <style lang="scss">
 body {

@@ -10,37 +10,37 @@
                         <div class="lable">
                             <span>{{ $t("profile.employeeId") }}</span>
                         </div>
-                        <input class="formData employeeId" type="text" placeholder="00123456" />
+                        <input class="formData employeeId" type="text" placeholder="00123456" :value="userData.id" />
                     </div>
                     <div class="formItem">
                         <div class="lable">
                             <span>{{ $t("profile.email") }}</span>
                         </div>
-                        <input class="formData email" type="text" placeholder="test@test.com" />
+                        <input class="formData email" type="text" placeholder="test@test.com" :value="userData.email" />
                     </div>
                     <div class="formItem">
                         <div class="lable">
                             <span>{{ $t("profile.zhName") }}</span>
                         </div>
-                        <input class="formData zhName" type="text" placeholder="Demo-test （測試小姐）" />
+                        <input class="formData zhName" type="text" placeholder="Demo-test（測試小姐）" :value="userData.name" />
                     </div>
                     <div class="formItem">
                         <div class="lable">
                             <span>{{ $t("profile.enName") }}</span>
                         </div>
-                        <input class="formData enName" type="text" placeholder="Test" />
+                        <input class="formData enName" type="text" placeholder="Test" :value="userData.name_en" />
                     </div>
                     <div class="formItem">
                         <div class="lable">
                             <span>{{ $t("profile.phone") }}</span>
                         </div>
-                        <input class="formData phone" type="text" placeholder="0912345678" />
+                        <input class="formData phone" type="text" placeholder="0912345678" :value="userData.phone" />
                     </div>
                     <div class="formItem">
                         <div class="lable">
                             <span>{{ $t("profile.homeTel") }}</span>
                         </div>
-                        <input class="formData homeTel" type="text" placeholder="0223456789" />
+                        <input class="formData homeTel" type="text" placeholder="0223456789" :value="userData.office_tel" />
                     </div>
                 </div>
                 <div class="submit">
@@ -66,44 +66,24 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import useGlobalStore from "../store/index";
-import LoginRequestModel from "@/models/api/account/LoginRequestModel";
-import { loginToken } from "~/api/auth";
 const { locale, setLocale } = useI18n();
 const router = useRouter();
 const isLoading = ref();
-isLoading.value = false;
-const user = reactive({
-    employeeId: null,
-    email: null,
-    zhName: null,
-    enName: null,
-    
+isLoading.value = true;
+//檢查是否登入成功
+const { $checkLogin } = useNuxtApp()
+const checkLogin = await $checkLogin()
+isLoading.value =  false;
+//檢查是否登入成功-end
+const userData = reactive({
+    id: checkLogin.id,
+    email: checkLogin.email,
+    name: checkLogin.name,
+    name_en: checkLogin.name_en,
+    phone: checkLogin.phone,
+    office_tel: checkLogin.office_tel
 })
 
-
-const login = async () => {
-  try {
-    isLoading.value = true
-    const loginInfo = new LoginRequestModel()
-    loginInfo.email = emailData.value;
-    loginInfo.employee_id = idData.value;
-    const res = await loginToken(JSON.stringify(loginInfo));
-    if(res.data._value.success) {
-        const access_token = useCookie('access_token',{maxAge:3600})
-        access_token.value = res.data._value.access_token
-        isLoading.value = false
-        location.href = `/${locale.value}`
-        // router.push({ path: `${locale.value}`});
-    }else {
-        alert('登入失敗')
-        isLoading.value = false
-    }
-  } catch (error) {
-    isLoading.value = false
-    alert('登入失敗')
-    console.log(error);
-  }
-};
 </script>
 <style lang="scss" scoped>
 @import url(./index.scss);

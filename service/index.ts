@@ -3,7 +3,6 @@ import { UseFetchOptions } from "nuxt/app";
 type Methods = "GET" | "POST" | "DELETE" | "PUT";
 
 const BASE_URL = "http://app.sandbox-2024.brandvivotek.com";
-
 export interface IResultData<T> {
   code: number;
   data: T;
@@ -23,7 +22,6 @@ class HttpRequest {
         method: method,
         ...options,
       };
-
       if (method === "GET" || method === "DELETE") {
         newOptions.params = data;
       }
