@@ -1,0 +1,324 @@
+@use 'sass:math';
+#main{
+    .container{
+        overflow-x: hidden;
+        .banner{
+            width: 100%;
+            position: relative;
+            $boxWidth_pc: 1920px;
+            $boxHeight_pc: 1025px;
+            $boxWidth_mb: 375px;
+            $boxHeight_mb: 666px;
+            background: url('/main/Background.png') no-repeat;
+            background-size: 100%;
+            @include mob-width {
+                background: url('/main/Background.png') no-repeat;
+                background-size: 100%;
+            }
+            > .height {
+                display: block;
+                padding-bottom: #{math.div($boxHeight_pc, $boxWidth_pc) * 100%};
+                @include mob-width {
+                    padding-bottom: #{math.div($boxHeight_mb, $boxWidth_mb) * 100%};
+                }
+            }
+            .bgImg{
+                @for $i from 1 through 5 {
+                    .bgImg__#{$i} {
+                        &-anime {
+                            position: absolute;
+                            @if $i == 1 {
+                                transform-origin: top;
+                                left: #{math.div(0px, $boxWidth_pc) * 100%};
+                                top: #{math.div(0px, $boxHeight_pc) * 100%};
+                                $w: 1920px;
+                                $h: 1025px;
+                                @include getImgBoxSize($w, $h, $boxWidth_pc);
+                                @include mob-width {
+                                    display: none;
+                                }
+                            } @else if $i == 2 {
+                                transform-origin: top;
+                                left: #{math.div(0px, $boxWidth_pc) * 100%};
+                                top: #{math.div(0px, $boxHeight_pc) * 100%};
+                                $w: 1920px;
+                                $h: 1025px;
+                                @include getImgBoxSize($w, $h, $boxWidth_pc);
+                                @include mob-width {
+                                    display: none;
+                                }
+                            } @else if $i == 3 {
+                                transform-origin: left bottom;
+                                left: #{math.div(0px, $boxWidth_pc) * 100%};
+                                top: #{math.div(0px, $boxHeight_pc) * 100%};
+                                $w: 1920px;
+                                $h: 1025px;
+                                @include getImgBoxSize($w, $h, $boxWidth_pc);
+                                @include mob-width {
+                                    display: none;
+                                }
+                            } @else if $i == 4 {
+                                transform-origin: right bottom;
+                                left: #{math.div(0px, $boxWidth_pc) * 100%};
+                                top: #{math.div(0px, $boxHeight_pc) * 100%};
+                                $w: 1920px;
+                                $h: 1025px;
+                                @include getImgBoxSize($w, $h, $boxWidth_pc);
+                                @include mob-width {
+                                    display: none;
+                                }
+                            } @else if $i == 5 {
+                                transform-origin: left;
+                                left: #{math.div(0px, $boxWidth_pc) * 100%};
+                                top: #{math.div(0px, $boxHeight_pc) * 100%};
+                                $w: 1920px;
+                                $h: 1025px;
+                                @include getImgBoxSize($w, $h, $boxWidth_pc);
+                                @include mob-width {
+                                    display: none;
+                                }
+                            }
+                            &-obj {
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                right: 0;
+                                bottom: 0;
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                @if $i == 1 {
+                                    background-image: url('/main/KV1.png');
+                                    @include mob-width {
+                                    }
+                                } @else if $i == 2 {
+                                    background-image: url('/main/KV2.png');
+                                    @include mob-width {
+                                    }
+                                } @else if $i == 3 {
+                                    background-image: url('/main/KV4.png');
+                                    @include mob-width {
+                                    }
+                                } @else if $i == 4 {
+                                    background-image: url('/main/KV5.png');
+                                    @include mob-width {
+                                    }
+                                } @else if $i == 5 {
+                                    background-image: url('/main/KV3.png');
+                                    @include mob-width {
+                                    }
+                                }
+                                
+                            }
+                        }
+                    }
+                }
+            }
+            .cIcon{
+                @for $i from 1 through 4 {
+                    .cIcon__#{$i} {
+                        &-anime {
+                            position: absolute;
+                            $w: 56px;
+                            $h: 166px;
+                            @include getImgBoxSize($w, $h, $boxWidth_pc);
+                            @if $i == 1 {
+                                transform-origin: bottom;
+                                left: #{math.div(126px, $boxWidth_pc) * 100%};
+                                top: #{math.div(120px, $boxHeight_pc) * 100%};
+                                @include mob-width {
+                                    display: none;
+                                }
+                            } @else if $i == 2 {
+                                transform-origin: bottom;
+                                left: #{math.div(432px, $boxWidth_pc) * 100%};
+                                top: #{math.div(73px, $boxHeight_pc) * 100%};
+                                @include mob-width {
+                                    display: none;
+                                }
+                            } @else if $i == 3 {
+                                transform-origin: bottom;
+                                left: #{math.div(1373px, $boxWidth_pc) * 100%};
+                                top: #{math.div(176px, $boxHeight_pc) * 100%};
+                                @include mob-width {
+                                    display: none;
+                                }
+                            } @else if $i == 4 {
+                                transform-origin: bottom;
+                                left: #{math.div(1756px, $boxWidth_pc) * 100%};
+                                top: #{math.div(62px, $boxHeight_pc) * 100%};
+                                @include getImgBoxSize($w, $h, $boxWidth_pc);
+                                @include mob-width {
+                                    display: none;
+                                }
+                            }
+                            &-obj {
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                right: 0;
+                                bottom: 0;
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                @if $i == 1 {
+                                    background-image: url('/main/FloatIcon1.png');
+                                    @include mob-width {
+                                    }
+                                } @else if $i == 2 {
+                                    background-image: url('/main/FloatIcon2.png');
+                                    @include mob-width {
+                                    }
+                                } @else if $i == 3 {
+                                    background-image: url('/main/FloatIcon3.png');
+                                    @include mob-width {
+                                    }
+                                } @else if $i == 4 {
+                                    background-image: url('/main/FloatIcon4.png');
+                                    @include mob-width {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .camera{
+                @for $i from 1 through 5 {
+                    .camera__#{$i} {
+                        &-anime {
+                            position: absolute;
+                            $w: 80px;
+                            $h: 80px;
+                            @include getImgBoxSize($w, $h, $boxWidth_pc);
+                            @if $i == 1 {
+                                transform-origin: bottom;
+                                left: #{math.div(114px, $boxWidth_pc) * 100%};
+                                top: #{math.div(278px, $boxHeight_pc) * 100%};
+                                @include mob-width {
+                                    display: none;
+                                }
+                            } @else if $i == 2 {
+                                transform-origin: bottom;
+                                left: #{math.div(420px, $boxWidth_pc) * 100%};
+                                top: #{math.div(210px, $boxHeight_pc) * 100%};
+                                @include mob-width {
+                                    display: none;
+                                }
+                            } @else if $i == 3 {
+                                transform-origin: bottom;
+                                left: #{math.div(1363px, $boxWidth_pc) * 100%};
+                                top: #{math.div(295px, $boxHeight_pc) * 100%};
+                                @include mob-width {
+                                    display: none;
+                                }
+                            } @else if $i == 4 {
+                                transform-origin: bottom;
+                                $w: 64px;
+                                $h: 64px;
+                                left: #{math.div(1752px, $boxWidth_pc) * 100%};
+                                top: #{math.div(221px, $boxHeight_pc) * 100%};
+                                @include getImgBoxSize($w, $h, $boxWidth_pc);
+                                @include mob-width {
+                                    display: none;
+                                }
+                            } @else if $i == 5 {
+                                transform-origin: bottom;
+                                left: #{math.div(87px, $boxWidth_pc) * 100%};
+                                top: #{math.div(719px, $boxHeight_pc) * 100%};
+                                @include mob-width {
+                                    display: none;
+                                }
+                            }
+                            &-obj {
+                                position: absolute;
+                                left: 0;
+                                top: 0;
+                                right: 0;
+                                bottom: 0;
+                                background-size: 100%;
+                                background-repeat: no-repeat;
+                                background-position: center;
+                                @if $i == 1 {
+                                    background-image: url('/main/Icon-2.png');
+                                    @include mob-width {
+                                    }
+                                } @else if $i == 2 {
+                                    background-image: url('/main/Icon-1.png');
+                                    @include mob-width {
+                                    }
+                                } @else if $i == 3 {
+                                    background-image: url('/main/Icon-2.png');
+                                    @include mob-width {
+                                    }
+                                } @else if $i == 4 {
+                                    background-image: url('/main/Icon-3.png');
+                                    @include mob-width {
+                                    }
+                                } @else if $i == 5 {
+                                    background-image: url('/main/Icon-4.png');
+                                    @include mob-width {
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .bannerTitle{
+                &-anime {
+                    position: absolute;
+                    $w: 309px;
+                    $h: 122px;
+                    @include getImgBoxSize($w, $h, $boxWidth_pc);
+                    left: #{math.div(806px, $boxWidth_pc) * 100%};
+                    top: #{math.div(80px, $boxHeight_pc) * 100%};
+                    // @include mob-width {
+                    //     $w: 204px;
+                    //     $h: 89px;
+                    //     @include getImgBoxSize($w, $h, $boxWidth_mb);
+                    //     left: #{math.div(85px, $boxWidth_mb) * 100%};
+                    //     top: #{math.div(0px, $boxHeight_mb) * 100%};
+                    // }
+                    &-obj {
+                        position: absolute;
+                        left: 0;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        background-size: 100%;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        background-image: url('/main/bannerLogo.png');
+                        @include mob-width {
+                            background-image: url('/main/bannerLogo.png');
+                        }
+                    }
+                }
+            }
+        }
+        .info{
+            position: relative;
+            background-color: #F8F8FF;
+            padding-top: 89px;
+            .infoTitle{
+                padding: 0 10px;
+                text-align: center;
+                font-size: 32px;
+                font-weight: bold;
+                line-height: 1;
+            }
+            .infoDes{
+                margin-top: 24px;
+                text-align: center;
+                // display: flex;
+                // justify-content: center;
+                span{
+                    // max-width: 700px;
+                    font-size: 20px;
+                    color: #828282;
+                }
+            }
+        }
+    }
+}

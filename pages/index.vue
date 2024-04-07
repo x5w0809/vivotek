@@ -1,6 +1,66 @@
 <template>
     <div>
-        <div id="main">首頁</div>
+        <div id="main">
+            <div class="container">
+                <section class="banner">
+                    <div class="bgImg">
+                        <div :class="`bgImg__${index + 1}`" v-for="(item, index) in 5" :key="'bgImg' + index" data-anime>
+                            <div :class="`bgImg__${index + 1}-anime bgImgAnime`">
+                                <div :class="`bgImg__${index + 1}-anime-obj`"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cIcon">
+                        <div :class="`cIcon__${index + 1}`" v-for="(item, index) in 4" :key="'cIcon' + index" data-anime>
+                            <div :class="`cIcon__${index + 1}-anime cIconAnime`">
+                                <div :class="`cIcon__${index + 1}-anime-obj`"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="camera">
+                        <div :class="`camera__${index + 1}`" v-for="(item, index) in 5" :key="'camera' + index" data-anime>
+                            <div :class="`camera__${index + 1}-anime cameraAnime`">
+                                <div :class="`camera__${index + 1}-anime-obj`"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bannerTitle">
+                        <div class="bannerTitle-anime">
+                            <div class="bannerTitle-anime-obj"></div>
+                        </div>
+                    </div>
+                    <div class="height"></div>
+                </section>
+                <section class="info">
+                    <div class="infoTitle">
+                        <span>We Get The Picture – # 速度 、# 透明、 # 品質 、# 團隊合作</span>
+                    </div>
+                    <div class="infoDes">
+                        <span>
+                            我們深信企業文化是 VIVOTEK 的成功秘訣，也是營運向上成長的驅動力！<br />
+                            今年，我們的品牌活動以速度、透明、品質和團隊合作這四大核心文化為主軸，<br />
+                            傳遞獨特文化魅力，讓全球同仁透過活動「 Get the Picture 」！
+                        </span>
+                    </div>
+                    <div class="active"></div>
+                    <div class="point">
+                        <div class="title">
+                            <span>年度積分</span>
+                        </div>
+                        <div class="data">
+                            <div class="des">
+                                <span class="lable">姓名：</span><span>Vivotek</span>&nbsp;&nbsp;
+                                <span class="lable">團隊：</span><span>數據小組</span>&nbsp;&nbsp;
+                                <span class="lable">工作據點：</span><span>Taiwan</span>
+                            </div>
+                            <div class="detail"></div>
+                        </div>
+                    </div>
+                    <div class="ranking"></div>
+                    <div class="height"></div>
+                </section>
+            </div>
+        </div>
     </div>
 </template>
 <script setup>
@@ -19,47 +79,5 @@ const checkLogin = await $checkLogin()
 //檢查是否登入成功-end
 </script>
 <style lang="scss">
-body {
-    padding: 0;
-    margin: 0;
-}
-h2 {
-    font-size: 30px;
-    text-align: center;
-}
-.checkToZh {
-    display: flex;
-    justify-content: center;
-    text-decoration: none;
-    span {
-        color: #000000;
-        cursor: pointer;
-        padding: 5px 20px;
-        font-size: 20px;
-        border: 1px solid #000000;
-        border-radius: 20px;
-        font-weight: bold;
-        transition: 0.2s ease;
-        &:hover {
-            background-color: #000000;
-            color: #0873ae;
-        }
-    }
-}
-.newsList {
-    width: 90%;
-    margin: 0 auto;
-    a {
-        text-decoration: none;
-        .newsCard {
-            font-size: 14px;
-            line-height: 1.6;
-            color: #000000;
-            transition: 0.2s ease;
-            &:hover {
-                color: #0873ae;
-            }
-        }
-    }
-}
+@import url(../assets/css/index.scss);
 </style>

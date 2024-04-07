@@ -53,7 +53,7 @@ console.log('localPath', localPath)
 </script>
 <style lang="scss" scoped>
 #headerBar {
-    position: absolute;
+    position: relative;
     top: 0;
     left: 0;
     width: 100%;
