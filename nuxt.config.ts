@@ -57,6 +57,7 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/i18n',
+    'nuxt-swiper'
   ],
   i18n: {
     strategy: 'prefix',
@@ -80,4 +81,7 @@ export default defineNuxtConfig({
       redirectOn: 'root'
     }
   },
+  swiper:{
+    //modules: ['navigation', 'pagination', 'effect-creative' ]
+  }
 })

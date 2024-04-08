@@ -553,15 +553,16 @@
         }
         .review {
             position: relative;
-            padding-top: 100px;
+            padding: 100px 0;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             background: url('/main/Texture.png') repeat;
             background-color: #ffffff;
             background-size: 100%;
             .wrap{
                 max-width: 850px;
                 width: 100%;
+                margin: auto;
                 .reviewTitle{
                     padding: 0 10px;
                     text-align: center;
@@ -620,6 +621,31 @@
                     }
                 }
             }
+            .swiper{
+                width: 100%;
+            }
+        }
+        .swiper{
+            margin-top: 40px;
+            width: 100%;
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                background: #fff;
+              
+                /* Center slide text vertically */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                img {
+                    display: block;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                  }
+              }
+              
+              
         }
     }
 }

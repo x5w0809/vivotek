@@ -17,6 +17,7 @@
     "sass": "^1.66.1"
   },
   "dependencies": {
+    "nuxt-swiper": "^1.2.2",
     "swiper": "^11.0.7",
     "vue-awesome-swiper": "^5.0.1",
     "vuetify": "^3.5.11"

@@ -170,6 +170,28 @@
                             </div>
                         </div>
                     </div>
+                    <div class="swiper">
+                        <Swiper
+                            :modules="[ SwiperAutoplay,SwiperNavigation, SwiperEffectCreative ]"
+                            :slides-per-view="5"
+                            :space-between="16"
+                            :freeMode="true"
+                            :autoplay="{
+                                delay: 2000,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true,
+                            }"
+                            :loop="true"
+                            >
+                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                        </Swiper>
+                    </div>
                 </section>
             </div>
         </div>
