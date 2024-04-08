@@ -48,12 +48,12 @@
                                 傳遞獨特文化魅力，讓全球同仁透過活動「 Get the Picture 」！
                             </span>
                         </div>
-                        <div class="active">
+                        <div class="activeNews">
                             <div class="title">
                                 <span>活動快訊</span>
                             </div>
                             <div class="data">
-                                <div :class="`data__${index + 1} dataContent`" v-for="(item, index) in activeData" :key="'data' + index" data-anime>
+                                <div :class="`data__${index + 1} dataContent`" v-for="(item, index) in activeNews" :key="'data' + index" data-anime>
                                     <a :href="item.url">
                                         <div class="boxContent">
                                             <div class="box1">
@@ -193,6 +193,29 @@
                         </Swiper>
                     </div>
                 </section>
+                <section class="active">
+                    <div class="wrap">
+                        <div class="activeTitle">
+                            <span>2024 精彩活動</span>
+                        </div>
+                        <div class="activeContent">
+                            <div :class="`activeCard__${index + 1} activeCard`" v-for="(item, index) in activeData" :key="'activeCard' + index" data-anime>
+                                <a :href="item.url">
+                                    <div :class="`activeCard__${index + 1}-anime`">
+                                        <div :class="`activeCard__${index + 1}-anime-img activeCardImg`">
+                                            <img :src="item.img" alt="">
+                                        </div>
+                                    </div>
+                                    <div :class="`activeCard__${index + 1}-anime-info activeCardInfo`">
+                                        <div class="title"><span class="name">{{ item.title }}</span><span class="date">{{ item.date }}</span></div>
+                                        <div class="des"><p>{{ item.des }}</p></div>
+                                        <div class="btn"><span>查看更多</span></div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
@@ -210,7 +233,7 @@ const { locale, setLocale } = useI18n();
 //檢查是否登入成功
 const { $checkLogin } = useNuxtApp()
 const checkLogin = await $checkLogin()
-const activeData = reactive([
+const activeNews = reactive([
     {
         date: "2024/03/31",
         name: "新活動上線！立即參與特搜王活動上傳圖片，獲取高額獎勵！",
@@ -305,6 +328,22 @@ const rankingData = reactive([
         score: "80",
         change: "0"
     },
+])
+const activeData = reactive([
+    {
+        img:'/main/active1.png',
+        url:'/profile',
+        title: '全球特搜王',
+        date: '3 - 7月',
+        des: '在這個活動中，員工們可以在更多不同的地方看見 VIVOTEK ，如同阿凡達電影中主角從「看見」而「感受到」VIVOTEK 對品質的追求，強化品牌認同感。',
+    },
+    {
+        img:'/main/active2.png',
+        url:'/earthDay',
+        title: '晶睿地球日',
+        date: '3 - 7月',
+        des: '我們必須全方位了解身處的環境，並採取具體行動。\n透明一直是 VIVOTEK 企業文化的核心，透過綠色市集和永續講堂，能為員工們提供更多對地球永續發展的見解，唯有積極了解，才有機會啟發創新思維，並產生精準作為，邁向一個更永續的明天。',
+    }
 ])
 //檢查是否登入成功-end
 </script>

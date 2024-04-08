@@ -1,0 +1,97 @@
+@use 'sass:math';
+#earthDayPage{
+    background-color: #24CD9A;
+    .container{
+        overflow-x: hidden;
+        .banner{
+            width: 100%;
+            position: relative;
+            $boxWidth_pc: 1920px;
+            $boxHeight_pc: 900px;
+            $boxWidth_mb: 375px;
+            $boxHeight_mb: 666px;
+            background: url('/earth/bg1.png') no-repeat;
+            background-size: 100%;
+            @include mob-width {
+                background: url('/main/Background.png') no-repeat;
+                background-size: 100%;
+            }
+            > .height {
+                display: block;
+                padding-bottom: #{math.div($boxHeight_pc, $boxWidth_pc) * 100%};
+                @include mob-width {
+                    padding-bottom: #{math.div($boxHeight_mb, $boxWidth_mb) * 100%};
+                }
+            }
+        }
+        .Transparency{
+            width: 100%;
+            position: relative;
+            $boxWidth_pc: 1920px;
+            $boxHeight_pc: 1700px;
+            $boxWidth_mb: 375px;
+            $boxHeight_mb: 666px;
+            $wrapWidth_pc: 1168px;
+            background: url('/earth/bg2.png') no-repeat;
+            background-size: 100%;
+            margin-top: #{math.div(-124px, $boxHeight_pc) * 100%};;
+            @include mob-width {
+                background: url('/main/Background.png') no-repeat;
+                background-size: 100%;
+            }
+            > .height {
+                display: block;
+                padding-bottom: #{math.div($boxHeight_pc, $boxWidth_pc) * 100%};
+                @include mob-width {
+                    padding-bottom: #{math.div($boxHeight_mb, $boxWidth_mb) * 100%};
+                }
+            }
+            .wrap{
+                position: absolute;
+                width: vw(1168,1920);
+                height: 100%;
+                margin: auto;
+                //padding-top: #{math.div(325px, $boxHeight_pc) * 100%};
+                left: 50%;
+                transform: translateX(-50%);                
+                .title{
+                    top: #{math.div(325px, $boxHeight_pc) * 100%};
+                    position: absolute;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    span{
+                        padding: #{math.div(40px, $boxHeight_pc) * 100%} #{math.div(80px, $wrapWidth_pc) * 100%};
+                        font-size: vw(32, 1920);
+                        font-weight: bold;
+                        border-radius: 999px;
+                        background-color: #465AFF;
+                        color: #FFFFFF;
+                    }
+                }
+                .des{
+                    top: #{math.div(475px, $boxHeight_pc) * 100%};
+                    position: absolute;
+                    width: 100%;
+                    padding: 0 #{math.div(40px, $wrapWidth_pc) * 100%};
+                    text-align: center;
+                    span{
+                        font-size: vw(24,1920);
+                        color: #FFFFFF;
+                    }
+                }
+                .detail{
+                    top: #{math.div(659px, $boxHeight_pc) * 100%};
+                    position: absolute;
+                    border-radius: 40px;
+                    border: vw(8,1920) solid #465AFF;
+                    width: 100%;
+                    $w: 1168px;
+                    $h: 799px;
+                    @include getImgBoxSize($w, $h, $wrapWidth_pc);
+                }
+            }
+            
+        }
+    }
+}
