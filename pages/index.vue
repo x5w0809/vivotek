@@ -127,6 +127,50 @@
                         </div>
                     </div>
                 </section>
+                <section class="review">
+                    <div class="wrap">
+                        <div class="reviewTitle">
+                            <span>2023 活動亮點</span>
+                        </div>
+                        <div class="reviewDes">
+                            <span>
+                                我們深信企業文化是 VIVOTEK 的成功秘訣，也是營運向上成長的驅動力！<br />
+                                今年，我們的品牌活動以速度、透明、品質和團隊合作這四大核心文化為主軸，<br />
+                                傳遞獨特文化魅力，讓全球同仁透過活動「 Get the Picture 」！
+                            </span>
+                        </div>
+                        <div class="reviewDataContent">
+                            <div class="title">
+                                <span>數據回顧</span>
+                            </div>
+                            <div class="data">
+                                <div class="detail">
+                                    <div class="reviewData reviewData1">
+                                        <div class="dataTitle">總參與人數</div>
+                                        <div class="dataNum">3000</div>
+                                    </div>
+                                    <div class="reviewData reviewData2">
+                                        <div class="dataTitle">總積分</div>
+                                        <div class="dataNum">10000</div>
+                                    </div>
+                                    <div class="reviewData reviewData3">
+                                        <div class="dataTitle">節省能源</div>
+                                        <div class="dataNum">9999<span>C2O</span></div>
+                                    </div>
+                                    <div class="reviewData reviewData4">
+                                        <div class="dataTitle">平均參與時間</div>
+                                        <div class="dataNum">9999<span>min</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="picture">
+                            <div class="title">
+                                <span>活動花絮</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </div>
         </div>
     </div>

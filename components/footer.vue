@@ -37,7 +37,7 @@ currentRoute = route.path
 #footer {
     position: relative;
     width: 100%;
-    background-color: #F8F8FF;
+    background-color: #FFFFFF;
     bottom: 0;
     left: 0;
     .wrap{
