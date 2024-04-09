@@ -1,5 +1,5 @@
 <template>
-    <div id="headerBar" v-if="currentRoute != '/'+locale+'/login'" >
+    <div id="headerBar" v-if="currentRoute != '/'+localPath+'/login'" >
         <div class="wrap">
             <div class="logo">
                 <img src="/headerLogo.svg" alt="vivotek">
@@ -41,7 +41,7 @@ localPath = locale._value;
 let currentRoute = ref();
 currentRoute = route.path
 
-console.log('localPath', localPath)
+console.log('currentRoute', localPath)
 // isLogin.value = false;
 // const checkLogin = () => {
 //     if (!isLogin.value) {

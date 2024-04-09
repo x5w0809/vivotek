@@ -4,12 +4,12 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url('/login/Background.png');
+    background-image: url('/login/BackgroundPC.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
     @include mob-width {
-        background-image: url('/login/mb/Background.png');
+        background-image: url('/login/mb/BackgroundMobile.png');
         background-position: bottom;
     }
     .wrap{
