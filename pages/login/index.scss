@@ -1,6 +1,8 @@
 #loginPage{
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -10,7 +12,7 @@
     background-repeat: no-repeat;
     @include mob-width {
         background-image: url('/login/mb/BackgroundMobile.png');
-        background-position: bottom;
+        //background-position: bottom;
     }
     .wrap{
         display: flex;
@@ -18,6 +20,10 @@
         height: 100%;
         justify-content: center;
         align-items: center;
+        @include mob-width {
+            width: 100%;
+            height: auto;
+        }
         .loginCard{
             margin: 20px;
             position: relative;
@@ -28,16 +34,30 @@
             border-radius: 30px;
             box-shadow: 0px 2px 12px 2px rgba(0, 0, 0, 0.2);
             background-color: #ffffff;
+            overflow: hidden;
+            @include mob-width {
+                max-width: unset;
+                min-height: unset;
+                width: vw(593,768);
+                flex-direction: column;
+                border-radius: vw(24,768);
+                margin: auto;
+                margin-top: vw(120,768);
+                margin-bottom: vw(257,768);
+            }
             .imgPart{
                 position: relative;
                 width: 50%;
+                @include mob-width {
+                    width: 100%;
+                    height: vw(593,768);
+                }
                 .image{
                     &-anime {
                         position: absolute;
                         width: 100%;
                         height: 100%;
                         &-obj {
-                            border-radius: 30px 0px 0px 30px;
                             position: absolute;
                             left: 0;
                             top: 0;
@@ -47,6 +67,9 @@
                             background-repeat: no-repeat;
                             background-position: center;
                             background-image: url('/login/loginLeftImg.png');
+                            @include mob-width {
+                                background-image: url('/login/mb/loginLeftImg.png');
+                            }
                         }
                     }
                 }
@@ -55,21 +78,35 @@
                 position: relative;
                 padding: 0 40px;
                 width: 50%;
+                @include mob-width {
+                    width: 100%;
+                    padding: 0 vw(40,768);
+                }
                 .locale{
                     margin-top: 24px;
                     display: flex;
                     justify-content: flex-end;
                     align-items: center;
+                    @include mob-width {
+                        margin-top: vw(24,768);
+                    }
                     .hr{
                         margin: 0 8px;
                         width: 1px;
                         height: 20px;
                         border: 1px solid #BDBDBD;
+                        @include mob-width {
+                            margin: 0 vw(8,768);
+                            height: vw(20,768);
+                        }
                     }
                     .localeName{
                         cursor: pointer;
                         font-size: 20px;
                         color: #BDBDBD;
+                        @include mob-width {
+                            font-size: vw(24,768);
+                        }
                     }
                     .currentLocale{
                         color: #465AFF;
@@ -81,8 +118,14 @@
                     margin-top: 24px;
                     display: flex;
                     justify-content: center;
+                    @include mob-width {
+                        margin-top: vw(24,768);
+                    }
                     .logo{
                         width: 138px;
+                        @include mob-width {
+                            width: vw(138,768);
+                        }
                         img{
                             display: block;
                             width: 100%;
@@ -93,11 +136,18 @@
                     margin-top: 16px;
                     font-size: 24px;
                     text-align: center;
+                    @include mob-width {
+                        font-size: vw(24,768);
+                    }
                 }
                 .emailInput{
                     color: #828282;
                     font-size: 16px;
                     margin-top: 40px;
+                    @include mob-width {
+                        font-size: vw(24,768);
+                        margin-top: vw(40,768);
+                    }
                     .input{
                         margin-top: 12px;
                         width: 100%;
@@ -110,6 +160,15 @@
                             border-color: #465AFF;
                             color: #828282;
                             font-size: 16px;
+                            @include mob-width {
+                                font-size: vw(24,768);
+                            }
+                        }
+                        @include mob-width {
+                            margin-top: vw(12,768);
+                            height: vw(67,768);
+                            border-radius: vw(8,768);
+                            padding: 0 vw(16,768);
                         }
                     }
                 }
@@ -117,6 +176,10 @@
                     color: #828282;
                     font-size: 16px;
                     margin-top: 48px;
+                    @include mob-width {
+                        font-size: vw(24,768);
+                        margin-top: vw(40,768);
+                    }
                     .input{
                         margin-top: 12px;
                         width: 100%;
@@ -129,6 +192,15 @@
                             border-color: #465AFF;
                             color: #828282;
                             font-size: 16px;
+                            @include mob-width {
+                                font-size: vw(24,768);
+                            }
+                        }
+                        @include mob-width {
+                            margin-top: vw(12,768);
+                            height: vw(67,768);
+                            border-radius: vw(8,768);
+                            padding: 0 vw(16,768);
                         }
                     }
                 }
@@ -137,6 +209,10 @@
                     justify-content: center;
                     width: 100%;
                     margin-top: 64px;
+                    @include mob-width {
+                        margin-top: vw(56,768);
+                        margin-bottom: vw(40,768);
+                    }
                     .loginBtn{
                         cursor: pointer;
                         width: 120px;
@@ -152,6 +228,11 @@
                         }
                         span{
                             color: #ffffff;
+                        }
+                        @include mob-width {
+                            width: 100%;
+                            height: vw(83,768);
+                            font-size: vw(24,768);
                         }
                     }
                 }

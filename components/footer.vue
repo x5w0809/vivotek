@@ -42,11 +42,18 @@ currentRoute = route.path
     left: 0;
     .wrap{
       padding: 80px 0;
+      @include mob-width {
+        padding: vw(80,768) 0;
+      }
       .term{
         padding: 0 10px;
         text-align: center;
         font-size: 20px;
         color: #828282;
+        @include mob-width {
+            padding: 0 vw(40,768);
+            font-size:vw(24,768);
+        }
       }
       .shareBox{
         position: relative;
@@ -54,10 +61,18 @@ currentRoute = route.path
         display: flex;
         justify-content: center;
         margin-left: -24px;
+        @include mob-width {
+            margin-top: vw(40,768);
+            margin-left:vw(-24,768);
+        }
         .shareBtn{
             width: 64px;
             margin-left: 24px;
             cursor: pointer;
+            @include mob-width {
+                width: vw(64,768);
+                margin-left:vw(24,768);
+            }
             &:hover{
                 transform: translateY(-3px) scale(1.02);
             }
@@ -72,6 +87,10 @@ currentRoute = route.path
         text-align: center;
         font-size: 16px;
         color: #828282;
+        @include mob-width {
+            margin-top: vw(40,768);
+            font-size:vw(24,768);
+        }
       }
     }
 }

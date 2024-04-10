@@ -62,6 +62,9 @@ console.log('currentRoute', localPath)
     height: 64px;
     display: flex;
     justify-content: center;
+    @include mob-width {
+        height: vw(64,768);
+    }
     .wrap{
         padding:0 14px;
         width: 100%;
@@ -69,8 +72,15 @@ console.log('currentRoute', localPath)
         display: flex;
         justify-content: space-between;
         align-items: center;
+        @include mob-width {
+            max-width:unset;
+            padding:0 vw(40,768);
+        }
         .logo{
             width: 126px;
+            @include mob-width {
+                width:vw(126,768);
+            }
             img{
                 width: 100%;
                 display: block;
@@ -82,7 +92,9 @@ console.log('currentRoute', localPath)
                 position: relative;
                 .headerBtn{
                     text-align: center;
-                    padding: 2px 24px;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 24px;
                     margin-right:-1px;
                     color: #fff;
                     border-radius: 8px;
@@ -91,6 +103,11 @@ console.log('currentRoute', localPath)
                     &:hover{
                         color: #465AFF;
                         background: #fff;
+                    }
+                    @include mob-width {
+                        font-size: vw(20,768);
+                        padding: 0 vw(24,768);
+                        border-radius: vw(8,768);
                     }
                 }
                 &::before{
@@ -101,6 +118,7 @@ console.log('currentRoute', localPath)
                     width: 1px;
                     height: 70%;
                     background: #fff;
+                    
                 }
             }
             .headerBtnBox:last-child{
@@ -112,6 +130,7 @@ console.log('currentRoute', localPath)
                         width: 1px;
                         height: 70%;
                         background: #fff;
+                        
                     }
                 }
             
@@ -129,6 +148,10 @@ console.log('currentRoute', localPath)
         cursor: pointer;
         &:hover {
             color: #0873ae;
+        }
+        @include mob-width {
+            padding-left: vw(24,768);
+            font-size:vw(20,768);
         }
     }
 }
