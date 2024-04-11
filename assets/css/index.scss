@@ -7,12 +7,12 @@
             position: relative;
             $boxWidth_pc: 1920px;
             $boxHeight_pc: 1025px;
-            $boxWidth_mb: 375px;
-            $boxHeight_mb: 666px;
+            $boxWidth_mb: 840px;
+            $boxHeight_mb: 473px;
             background: url('/main/Background.png') no-repeat;
             background-size: 100%;
             @include mob-width {
-                background: url('/main/Background.png') no-repeat;
+                background: url('/main/mb/Background.png') no-repeat;
                 background-size: 100%;
             }
             > .height {
@@ -26,6 +26,7 @@
                 @for $i from 1 through 5 {
                     .bgImg__#{$i} {
                         &-anime {
+                            opacity: 0;
                             position: absolute;
                             @if $i == 1 {
                                 transform-origin: top;
@@ -267,19 +268,16 @@
             }
             .bannerTitle{
                 &-anime {
+                    opacity: 0;
                     position: absolute;
                     $w: 309px;
                     $h: 122px;
                     @include getImgBoxSize($w, $h, $boxWidth_pc);
                     left: #{math.div(806px, $boxWidth_pc) * 100%};
                     top: #{math.div(80px, $boxHeight_pc) * 100%};
-                    // @include mob-width {
-                    //     $w: 204px;
-                    //     $h: 89px;
-                    //     @include getImgBoxSize($w, $h, $boxWidth_mb);
-                    //     left: #{math.div(85px, $boxWidth_mb) * 100%};
-                    //     top: #{math.div(0px, $boxHeight_mb) * 100%};
-                    // }
+                    @include mob-width {
+                        display: none;
+                    }
                     &-obj {
                         position: absolute;
                         left: 0;
@@ -304,6 +302,10 @@
             padding-bottom: 132px;
             display: flex;
             justify-content: center;
+            @include mob-width {
+                padding-top: vw(120,768);
+                padding-bottom: vw(206,768);
+            }
             .infoBg{
                 &-anime{
                     position: absolute;
@@ -319,19 +321,33 @@
             .wrap{
                 max-width: 977px;
                 width: 100%;
+                @include mob-width {
+                    width: vw(688,768);
+                    max-width: unset;
+                }
                 .infoTitle{
                     padding: 0 10px;
                     text-align: center;
                     font-size: 32px;
                     font-weight: bold;
                     line-height: 1;
+                    @include mob-width {
+                        padding: 0 vw(10,768);
+                        font-size: vw(40,768);
+                    }
                 }
                 .infoDes{
                     margin-top: 24px;
                     text-align: center;
+                    @include mob-width {
+                        margin-top: vw(24,768);
+                    }
                     span{
                         font-size: 20px;
                         color: #828282;
+                        @include mob-width {
+                            font-size: vw(24,768);
+                        }
                     }
                 }
                 .activeNews{
@@ -339,6 +355,13 @@
                     margin-top: 80px;
                     display: flex;
                     flex-direction: column;
+                    border-radius: 24px;
+                    overflow: hidden;
+                    @include mob-width {
+                        width: 100%;
+                        margin-top: vw(80,768);
+                        border-radius: vw(24,768);
+                    }
                     .title{
                         width: 100%;
                         height: 75px;
@@ -347,20 +370,29 @@
                         justify-content: flex-start;
                         align-items: center;
                         padding: 0 40px;
-                        border-radius: 24px 24px 0 0;
+                        @include mob-width {
+                            height:vw(86,768);
+                            padding: 0 vw(24,768);
+                        }
                         span{
                             font-size: 24px;
                             font-weight: bold;
                             color: #ffffff;
+                            @include mob-width {
+                                font-size: vw(32,768);
+                            }
                         }
                     }
                     .data{
                         background-color: #ffffff;
-                        border-radius: 0 0  24px 24px;
                         padding:0 40px 16px 40px;
+                        @include mob-width {
+                            padding:0 vw(24,768) vw(16,768) vw(24,768);
+                        }
                         .dataContent{
                             display: flex;
                             flex-direction: column;
+                            overflow: hidden;
                             &::after{
                                 content: '';
                                 position: relative;
@@ -372,19 +404,39 @@
                                 padding: 24px 0;
                                 width: 100%;
                                 text-decoration: none;
+                                @include mob-width {
+                                    padding:vw(24,768) 0;
+                                }
                             }
                             .boxContent{
                                 display: flex;
                                 flex-direction: row;
                                 justify-content: space-between;
                                 padding-right: 12px;
+                                @include mob-width {
+                                    padding-right:vw(24,768);
+                                    overflow: hidden;
+                                }
                                 .box1{
+                                    width: 100%;
+                                    display: flex;
+                                    font-size: 20px;
+                                    @include mob-width {
+                                        font-size: vw(24,768);
+                                    }
                                     .dateAnime{
                                         color: #828282;
+                                        
                                     }
                                     .desAnime{
-                                        padding-left: 24px;
-                                        color: #333333;                            
+                                        padding:0 24px;
+                                        color: #333333;  
+                                        white-space:nowrap;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        @include mob-width {
+                                            padding:0 vw(24,768);
+                                        }                         
                                     }
                                 }
                                 .box2{
@@ -417,6 +469,13 @@
                     margin-top: 80px;
                     display: flex;
                     flex-direction: column;
+                    border-radius: 24px;
+                    overflow: hidden;
+                    @include mob-width {
+                        width: 100%;
+                        margin-top: vw(80,768);
+                        border-radius: vw(24,768);
+                    }
                     .title{
                         width: 100%;
                         height: 75px;
@@ -425,24 +484,38 @@
                         justify-content: flex-start;
                         align-items: center;
                         padding: 0 40px;
-                        border-radius: 24px 24px 0 0;
+                        @include mob-width {
+                            height:vw(86,768);
+                            padding: 0 vw(24,768);
+                        }
                         span{
                             font-size: 24px;
                             font-weight: bold;
                             color: #ffffff;
+                            @include mob-width {
+                                font-size: vw(32,768);
+                            }
                         }
                     }
                     .data{
                         background-color: #ffffff;
-                        border-radius: 0 0  24px 24px;
                         padding: 24px 40px;
+                        @include mob-width {
+                            padding:vw(24,768);
+                        }
                         .des{
                             font-size: 20px;
+                            @include mob-width {
+                                font-size: vw(24,768);
+                            }
                         }
                         .detail{
                             display: flex;
                             justify-content: center;
                             margin-top: 10px;
+                            @include mob-width {
+                                margin-top: vw(10,768);
+                            }
                             .rankcontent{
                                 position: relative;
                                 width: 25%;
@@ -457,16 +530,25 @@
                                     top: 50%;
                                     transform: translateY(-50%);
                                     background-color: #D9D9D9;
+                                    @include mob-width {
+                                        height: vw(48,768);
+                                    }
                                 }
                                 .rankNum{
                                     text-align: center;
                                     font-size: 48px;
                                     color: #465AFF;
+                                    @include mob-width {
+                                        font-size: vw(48,768);
+                                    }
                                 }
                                 .rankTitle{
                                     text-align: center;
                                     font-size: 20px;
                                     color: #828282;
+                                    @include mob-width {
+                                        font-size: vw(24,768);
+                                    }
                                 }
                             }
                             .rankcontent:first-child{
@@ -482,6 +564,13 @@
                     margin-top: 80px;
                     display: flex;
                     flex-direction: column;
+                    border-radius: 24px;
+                    overflow: hidden;
+                    @include mob-width {
+                        width: 100%;
+                        margin-top: vw(80,768);
+                        border-radius: vw(24,768);
+                    }
                     .title{
                         width: 100%;
                         height: 75px;
@@ -490,19 +579,27 @@
                         justify-content: flex-start;
                         align-items: center;
                         padding: 0 40px;
-                        border-radius: 24px 24px 0 0;
+                        @include mob-width {
+                            height:vw(86,768);
+                            padding: 0 vw(24,768);
+                        }
                         span{
                             font-size: 24px;
                             font-weight: bold;
                             color: #ffffff;
+                            @include mob-width {
+                                font-size: vw(32,768);
+                            }
                         }
                     }
                     .data{
                         background-color: #ffffff;
-                        border-radius: 0 0  24px 24px;
                         padding: 24px 40px;
                         display: flex;
                         flex-direction: column;
+                        @include mob-width {
+                            padding:0 vw(24,768) vw(24,768) vw(24,768);
+                        }
                         .label{
                             display: flex;
                             .labelItem{
@@ -510,6 +607,10 @@
                                 width: 20%;
                                 text-align: center;
                                 font-size: 20px;
+                                @include mob-width {
+                                    padding-bottom: vw(8,768);
+                                    font-size: vw(20,768);
+                                }
                             }
                         }
                         .des{
@@ -518,6 +619,10 @@
                             padding-bottom: 24px;
                             height: 474px;
                             overflow-y: auto;
+                            @include mob-width {
+                                height: vw(474,768);
+                                padding-bottom: vw(24,768);
+                            }
                             .desContent{
                                 display: flex;
                                 position: relative;
@@ -533,6 +638,10 @@
                                     width: 20%;
                                     text-align: center;
                                     font-size: 20px;
+                                    @include mob-width {
+                                        padding: vw(8,768) 0;
+                                        font-size: vw(20,768);
+                                    }
                                 }
                             }
                         }
@@ -542,6 +651,10 @@
                             display: flex;
                             justify-content: center;
                             align-items: center;
+                            @include mob-width {
+                                margin-top: vw(16,768);
+                                font-size: vw(24,768);
+                            }
                             span{
                                 color: #828282;
                             }
@@ -559,35 +672,61 @@
             background: url('/main/Texture.png') repeat;
             background-color: #ffffff;
             background-size: 100%;
+            @include mob-width {
+                padding: vw(120,768) 0;
+            }
             .wrap{
                 max-width: 850px;
                 width: 100%;
                 margin: auto;
+                @include mob-width {
+                    max-width: unset;
+                    width: vw(688,768);
+                }
                 .reviewTitle{
                     padding: 0 10px;
                     text-align: center;
                     font-size: 32px;
                     font-weight: bold;
                     line-height: 1;
+                    @include mob-width {
+                        padding: 0;
+                        font-size: vw(40,768);
+                    }
                 }
                 .reviewDes{
                     margin-top: 24px;
                     text-align: center;
+                    @include mob-width {
+                        margin-top: vw(24,768);
+                    }
                     span{
                         font-size: 20px;
                         color: #828282;
+                        @include mob-width {
+                            font-size: vw(24,768);
+                        }
                     }
                 }
                 .reviewDataContent{
                     position: relative;
                     margin-top: 80px;
+                    @include mob-width {
+                        margin-top: vw(64,768);
+                    }
                     .title{
                         color: #4F4F4F;
                         font-weight: bold;
                         font-size: 24px;
+                        @include mob-width {
+                            font-size: vw(32,768);
+                        }
                     }
                     .data{
                         margin-top: 40px;
+                        @include mob-width {
+                            margin-top: vw(40,768);
+                        }
                         .detail{
                             display: flex;
                             .reviewData{
@@ -597,13 +736,22 @@
                                 .dataTitle{
                                     font-size: 20px;
                                     color: #828282;
+                                    @include mob-width {
+                                        font-size: vw(24,768);
+                                    }
                                 }
                                 .dataNum{
                                     font-size: 48px;
                                     color: #465AFF;
+                                    @include mob-width {
+                                        font-size: vw(48,768);
+                                    }
                                     span{
                                         font-size: 20px;
                                         color: #BDBDBD;
+                                        @include mob-width {
+                                            font-size: vw(20,768);
+                                        }
                                     }
                                 }
                             }
@@ -614,10 +762,16 @@
                 .picture{
                     position: relative;
                     margin-top: 80px;
+                    @include mob-width {
+                        margin-top: vw(63,768);
+                    }
                     .title{
                         color: #4F4F4F;
                         font-weight: bold;
                         font-size: 24px;
+                        @include mob-width {
+                            font-size: vw(32,768);
+                        }
                     }
                 }
             }
@@ -628,6 +782,9 @@
         .swiper{
             margin-top: 40px;
             width: 100%;
+            @include mob-width {
+                margin-top: vw(34,768);
+            }
             .swiper-slide {
                 text-align: center;
                 font-size: 18px;
@@ -654,24 +811,46 @@
             background-color: #F8F8FF;
             background-size: 100%;
             background-position: bottom;
+            @include mob-width {
+                padding: vw(120,768) 0;
+            }
             .wrap{
                 max-width: 982px;
+                @include mob-width {
+                    max-width: unset;
+                    width: vw(479,768);
+                }
                 .activeTitle{
                     font-size: 40px;
                     text-align: center;
                     font-weight: bold;
+                    @include mob-width {
+                        font-size: vw(40,768);
+                    }
                 }
                 .activeContent{
-                    margin-top: 40px;
+                    margin-top: 20px;
                     display: flex;
                     margin-left: -24px;
+                    @include mob-width {
+                        flex-direction: column;
+                        margin-top: vw(40,768);
+                        margin-left: 0;
+                    }
                     .activeCard{
+                        margin-top: 20px;
                         margin-left: 24px;
                         width: 50%;
                         border-radius: 24px;
                         background-color: #ffffff;
                         display: flex;
                         flex-direction: column;
+                        @include mob-width {
+                            width: 100%;
+                            margin-left: 0;
+                            border-radius: vw(24,768);
+                            margin-top: vw(40,768);
+                        }
                         a{
                             text-decoration: none;
                             color: #828282;
@@ -684,20 +863,32 @@
                         }
                         .activeCardInfo{
                             padding: 24px 40px 40px 40px;
+                            @include mob-width {
+                                padding: vw(24,768) vw(40,768) vw(40,768) vw(40,768);
+                            }
                             .title{
                                 padding-bottom: 24px;
                                 display: flex;
                                 justify-content: space-between;
                                 align-items: end;
                                 border-bottom: 0.5px solid #BBBBBB;
+                                @include mob-width {
+                                    padding-bottom: vw(24,768);
+                                }
                                 .name{
                                     font-size: 32px;
                                     color: #333333;
                                     font-weight: bold;
+                                    @include mob-width {
+                                        font-size: vw(40,768);
+                                    }
                                 }
                                 .date{
                                     font-size: 24px;
                                     color: #828282;
+                                    @include mob-width {
+                                        font-size: vw(32,768);
+                                    }
                                 }
                             }
                             .des{
@@ -705,24 +896,40 @@
                                 width: 100%;
                                 height: 92px;
                                 font-size: 16px;
+                                @include mob-width {
+                                    font-size: vw(24,768);
+                                    height:vw(107,768);
+                                    margin-top: vw(24,768);
+                                }
                                 p{
                                     white-space: pre-wrap;
                                     display: -webkit-box;
                                     -webkit-box-orient: vertical;
                                     -webkit-line-clamp: 4;
                                     overflow: hidden;
+                                    @include mob-width {
+                                        -webkit-line-clamp: 3;
+                                    }
                                 }
                                 
                             }
                             .btn{
                                 margin-top: 24px;
+                                @include mob-width {
+                                    margin-top: vw(24,768);
+                                }
                                 span{
                                     padding: 8px 16px;
-                                    font-size: 16;
+                                    font-size: 16px;
                                     font-weight: bold;
                                     color: #ffffff;
                                     background-color: #465AFF;
                                     border-radius: 8px;
+                                    @include mob-width {
+                                        padding: vw(16,768) vw(151.5,768);
+                                        font-size: vw(24,768);
+                                        border-radius: vw(8,768);
+                                    }
                                 }
                             }
                         }

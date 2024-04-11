@@ -63,6 +63,13 @@ const router = useRouter();
 const emailData = ref();
 const idData = ref();
 const isLoading = ref();
+//檢查是否登入成功
+// const { $checkLogin } = useNuxtApp()
+// const checkLogin = await $checkLogin()
+// if(checkLogin){
+//     navigateTo('/')
+// }
+//檢查是否登入成功-end
 isLoading.value = false
 const login = async () => {
   try {

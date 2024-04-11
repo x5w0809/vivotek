@@ -3,12 +3,37 @@
         <div id="main">
             <div class="container">
                 <section class="banner">
-                    <div class="bgImg">
+                    <div class="bgImg" ref="banner">
                         <div :class="`bgImg__${index + 1}`" v-for="(item, index) in 5" :key="'bgImg' + index" data-anime>
-                            <div :class="`bgImg__${index + 1}-anime bgImgAnime`">
+                            <div :ref="`bgImg__${index + 1}_anime`" :class="`bgImg__${index + 1}-anime bgImgAnime`">
                                 <div :class="`bgImg__${index + 1}-anime-obj`"></div>
                             </div>
                         </div>
+                        <!-- <div class="bgImg__1" >
+                            <div ref="bgImg__1_anime" class="bgImg__1-anime bgImgAnime">
+                                <div class="bgImg__1-anime-obj"></div>
+                            </div>
+                        </div>
+                        <div class="bgImg__2" >
+                            <div ref="bgImg__2_anime" class="bgImg__2-anime bgImgAnime">
+                                <div class="bgImg__2-anime-obj"></div>
+                            </div>
+                        </div>
+                        <div class="bgImg__3" >
+                            <div ref="bgImg__3_anime" class="bgImg__3-anime bgImgAnime">
+                                <div class="bgImg__3-anime-obj"></div>
+                            </div>
+                        </div>
+                        <div class="bgImg__4" >
+                            <div ref="bgImg__4_anime" class="bgImg__4-anime bgImgAnime">
+                                <div class="bgImg__4-anime-obj"></div>
+                            </div>
+                        </div>
+                        <div class="bgImg__5" >
+                            <div ref="bgImg__5_anime" class="bgImg__5-anime bgImgAnime">
+                                <div class="bgImg__5-anime-obj"></div>
+                            </div>
+                        </div> -->
                     </div>
                     <div class="cIcon">
                         <div :class="`cIcon__${index + 1}`" v-for="(item, index) in 4" :key="'cIcon' + index" data-anime>
@@ -170,28 +195,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="swiper">
-                        <Swiper
-                            :modules="[ SwiperAutoplay,SwiperNavigation, SwiperEffectCreative ]"
-                            :slides-per-view="5"
-                            :space-between="16"
-                            :freeMode="true"
-                            :autoplay="{
-                                delay: 2000,
-                                disableOnInteraction: false,
-                                pauseOnMouseEnter: true,
-                            }"
-                            :loop="true"
-                            >
-                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
-                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
-                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
-                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
-                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
-                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
-                            <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
-                        </Swiper>
-                    </div>
+                
+                    <Swiper v-bind="swiperConfig"  >
+                        <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                        <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                        <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                        <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                        <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                        <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                        <SwiperSlide><img src="/main/Rectangle1.png" alt=""></SwiperSlide>
+                    </Swiper>
                 </section>
                 <section class="active">
                     <div class="wrap">
@@ -231,8 +244,26 @@ const { locale, setLocale } = useI18n();
 // storeData.lan = ''
 //const  news  = await useAsyncData(() => $fetch('https://www.travel.taipei/open-api/en/Events/News?begin=1992-05-05&end=2023-08-05&page=1',{method: 'GET',headers: headers,}))
 //檢查是否登入成功
-const { $checkLogin } = useNuxtApp()
+const { $checkLogin, $anime } = useNuxtApp()
 const checkLogin = await $checkLogin()
+//檢查是否登入成功-end
+const swiperConfig = {
+    modules: [ SwiperAutoplay,SwiperNavigation, SwiperEffectCreative ],
+    loop: true,
+    autoplay:{
+        delay: 2000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+    },
+    slidesPerView: 3,
+    spaceBetween: 16,
+    breakpoints:{
+        768: {
+            slidesPerView: 5,
+            // slidesPerGroup: 3,
+        },
+    }
+};
 const activeNews = reactive([
     {
         date: "2024/03/31",
@@ -345,7 +376,54 @@ const activeData = reactive([
         des: '我們必須全方位了解身處的環境，並採取具體行動。\n透明一直是 VIVOTEK 企業文化的核心，透過綠色市集和永續講堂，能為員工們提供更多對地球永續發展的見解，唯有積極了解，才有機會啟發創新思維，並產生精準作為，邁向一個更永續的明天。',
     }
 ])
-//檢查是否登入成功-end
+let tl
+onMounted(() => {
+    tl = $anime.timeline({})
+    tl.add({
+        targets: '.bgImg__1-anime',
+        translateY: [100,0],
+        opacity: [0,1],
+        duration:800,
+        easing:'easeOutCubic'
+    })
+    tl.add({
+        targets: '.bgImg__2-anime',
+        translateY: [100,0],
+        opacity: [0,1],
+        duration:500,
+        easing:'easeOutCubic'
+    },'-=300')
+    tl.add({
+        targets: '.bgImg__5-anime',
+        translateY: [100,0],
+        opacity: [0,1],
+        duration:500,
+        easing:'easeOutCubic'
+    },'-=300')
+    tl.add({
+        targets: '.bannerTitle-anime',
+        translateY: [100,0],
+        opacity: [0,1],
+        duration:500,
+        easing:'easeOutCubic'
+    },'-=300')
+    tl.add({
+        targets: '.bgImg__3-anime',
+        translateY: [100,0],
+        opacity: [0,1],
+        duration:500,
+        easing:'easeOutCubic'
+    },'-=400')
+    tl.add({
+        targets: '.bgImg__4-anime',
+        translateY: [100,0],
+        opacity: [0,1],
+        duration:500,
+        easing:'easeOutCubic'
+    },'-=400')
+})
+
+
 </script>
 <style lang="scss">
 @import url(../assets/css/index.scss);

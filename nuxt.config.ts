@@ -57,7 +57,8 @@ export default defineNuxtConfig({
   modules: [
     '@pinia/nuxt',
     '@nuxtjs/i18n',
-    'nuxt-swiper'
+    'nuxt-swiper',
+    '@hypernym/nuxt-anime'
   ],
   i18n: {
     strategy: 'prefix',
