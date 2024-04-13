@@ -10,15 +10,11 @@
             $boxHeight_pc: 899px;
             $boxWidth_mb: 768px;
             $boxHeight_mb: 472px;
-            background: url('/earth/bg3.png') no-repeat;
+            background: url('/earth/bg.png') no-repeat;
             background-size: 100%;
-            background-color: #DDFEF5;
-            background-position: bottom;
             @include mob-width {
                 background: url('/earth/mb/bg.png') no-repeat;
                 background-size: 100%;
-                background-color: #DDFEF5;
-                background-position: bottom;
             }
             > .height {
                 display: block;
@@ -116,9 +112,9 @@
                     $h: 799px;
                     @include getImgBoxSize($w, $h, $wrapWidth_pc);
                     @include mob-width {
-                        top: #{math.div(525px, $boxHeight_mb) * 100%};
+                        top: #{math.div(535px, $boxHeight_mb) * 100%};
                         $w: 688px;
-                        $h: 1860px;
+                        $h: 1880px;
                         @include getImgBoxSize($w, $h, $wrapWidth_mb);
                         border-radius: vw(40,768);
                         border: vw(4,768) solid #465AFF;
