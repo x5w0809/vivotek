@@ -108,10 +108,12 @@
                                         <div class="rankNum">81</div>
                                         <div class="rankTitle">全球特搜王</div>
                                     </div>
+                                    <!-- 暫不開啟 -->
                                     <!-- <div class="rank2 rankcontent">
                                         <div class="rankNum">90</div>
                                         <div class="rankTitle">全球競走賽</div>
                                     </div> -->
+                                    <!-- 暫不開啟-end -->
                                     <div class="rank3 rankcontent">
                                         <div class="rankNum">5</div>
                                         <div class="rankTitle">總排名</div>
@@ -123,7 +125,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="ranking">
+                        <!-- 暫不開啟 -->
+                        <!-- <div class="ranking">
                             <div class="title">
                                 <span>全球積分榜</span>
                             </div>
@@ -148,8 +151,8 @@
                                     <span>*只有前五名有精美禮品，趕緊加快腳步衝榜吧！</span>
                                 </div>
                             </div>
-                            
-                        </div>
+                        </div> -->
+                        <!-- 暫不開啟-end -->
                     </div>
                 </section>
                 <section class="review">
@@ -212,19 +215,21 @@
                             <span>2024 精彩活動</span>
                         </div>
                         <div class="activeContent">
-                            <div :class="`activeCard__${index + 1} activeCard`" v-for="(item, index) in activeData" :key="'activeCard' + index" data-anime>
-                                <a :href="item.url">
-                                    <div :class="`activeCard__${index + 1}-anime`">
-                                        <div :class="`activeCard__${index + 1}-anime-img activeCardImg`">
-                                            <img :src="item.img" alt="">
+                            <div :class="`active__${index + 1} activeBox`" v-for="(item, index) in activeData" :key="'activeCard' + index" >
+                                <div :class="`activeCard__${index + 1} activeCard`" v-if="localCode === 'TW' || item.title != '晶睿地球日'"  data-anime>
+                                    <a :href="item.url">
+                                        <div :class="`activeCard__${index + 1}-anime`">
+                                            <div :class="`activeCard__${index + 1}-anime-img activeCardImg`">
+                                                <img :src="item.img" alt="">
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div :class="`activeCard__${index + 1}-anime-info activeCardInfo`">
-                                        <div class="title"><span class="name">{{ item.title }}</span><span class="date">{{ item.date }}</span></div>
-                                        <div class="des"><p>{{ item.des }}</p></div>
-                                        <div class="btn"><span>查看更多</span></div>
-                                    </div>
-                                </a>
+                                        <div :class="`activeCard__${index + 1}-anime-info activeCardInfo`">
+                                            <div class="title"><span class="name">{{ item.title }}</span><span class="date">{{ item.date }}</span></div>
+                                            <div class="des"><p>{{ item.des }}</p></div>
+                                            <div class="btn"><span>查看更多</span></div>
+                                        </div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -244,8 +249,10 @@ const { locale, setLocale } = useI18n();
 // storeData.lan = ''
 //const  news  = await useAsyncData(() => $fetch('https://www.travel.taipei/open-api/en/Events/News?begin=1992-05-05&end=2023-08-05&page=1',{method: 'GET',headers: headers,}))
 //檢查是否登入成功
+const localCode = ref()
 const { $checkLogin, $anime } = useNuxtApp()
 const checkLogin = await $checkLogin()
+localCode.value = checkLogin.legal_entity_code
 //檢查是否登入成功-end
 const swiperConfig = {
     modules: [ SwiperAutoplay,SwiperNavigation, SwiperEffectCreative ],

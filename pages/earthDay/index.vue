@@ -4,30 +4,29 @@
             <section class="banner"><div class="height"></div></section>
             <section class="Transparency">
                 <div class="wrap">
-                    <div class="title"><span>#Transparency</span></div>
+                    <div class="title"><span>#Teamwork</span></div>
                     <div class="des">
                         <span>
-                            我們必須全方位了解身處的環境，並採取具體行動。<br/>
-                            透明一直是 VIVOTEK 企業文化的核心，透過綠色市集和永續講堂，能為員工們提供更多對地球永續發展的見解，唯有積極了解，才有機會啟發創新思維，並產生精準作為，邁向一個更永續的明天。
+                            VIVOTEK文化力求「團隊合作」，本次特別邀請好食好事基金會攜手合作舉辦「晶睿地球日」，不僅有引人入勝的永續講堂，邀請重量級來賓 好食好事基金會執行長 陳茂嘉 和 VIVOTEK 全球行銷處處長 謝邦彥，一同分享綠色行動，更有六大永續品牌提供驚喜獨家優惠！
                         </span>
                     </div>
                     <div class="detail">
                         <div class="date detailContent">
-                            <div class="label">活動期間</div>
-                            <div class="cont">2024/4/22 (一)</div>
+                            <div class="label"><span>活動期間</span></div>
+                            <div class="cont"><span>2024/4/22 (一)</span></div>
                         </div>
                         <div class="members detailContent">
-                            <div class="label">參與人員</div>
-                            <div class="cont">TW VIVOTEKers</div>
+                            <div class="label"><span>參與人員</span></div>
+                            <div class="cont"><span>TW VIVOTEKers</span></div>
                         </div>
                         <div class="idea detailContent">
-                            <div class="label">活動理念</div>
-                            <div class="cont">本場活動結合世界地球日，以多樣化執行方式<span>倡議永續</span>，展現實現永續的不同方式，強調日常生活即可為地球及地方貢獻一己之力</div>
+                            <div class="label"><span>活動理念</span></div>
+                            <div class="cont"><span>響應世界地球日，從從能源、以各項執行方式</span><span class="tag">倡議永續</span><span>，展現實現永續的不同方式，強調日常生活即可為地球及地方貢獻一己之力</span></div>
                         </div>
                         <div class="feature detailContent">
-                            <div class="label">活動特色</div>
+                            <div class="label"><span>活動特色</span></div>
                             <div class="cont">
-                                <img src="/earth/List.png" alt="">
+                                <div class="img"></div>
                             </div>
                         </div>
                     </div>
@@ -48,9 +47,8 @@
                             <div class="subTitle">台灣食農產業的創新推手</div>
                             <div class="des">
                                 財團法人好食好事基金會於2017年成立，旨在推動台灣食品農業創新。<br />
-                                面對全球挑戰，以國際化和創新思維為導向，支持食農新創解決問題。透過青年人才培育和食品研發，創造更透明、健康、永續的飲食環境，最終實現「處處有好食」。<br />
-                                基金會著重借鏡前人經驗和市場動態，避免走彎路。強大的董事會、導師團隊和創業者社群支持新創，幫助他們找到發展方向。<br />
-                                希望新創企業專注於市場需求，以台灣為起點，創新推動產業發展。<br />
+                                面對全球挑戰，以國際化和創新思維為導向，支持食農新創解決問題。透過青年人才培育和食品研發，創造更透明、健康、永續的飲食環境，最終實現「處處有好食」。<br /><br />
+                                和 VIVOTEK 同樣奉行「團隊合作」的核心文化，好食好事基金會從董事會到加速器業師陣容，再到創業者社群，都聚集在食農產業耕耘已久的各方名家，從第一線的技術研發，到國際市場趨勢分析，皆能引領尚未穩定的創業團隊走向健康的發展方向。<br/>
                                 透過支持食農新創，將「好食」融入生活各個層面。
                             </div>
                         </div>
@@ -76,8 +74,8 @@
                             <div class="label">邀約對象</div>
                             <div class="cont">
                                 <div class="des">
-                                    <span class="des1">6 家 (TBC)</span>
-                                    <span class="des2">好食好事基金會輔導品牌</span>
+                                    <span class="des1">6 家</span>
+                                    <!-- <span class="des2">好食好事基金會輔導品牌</span> -->
                                 </div>
                             </div>
                         </div>
@@ -139,7 +137,7 @@
                             <div class="cont">
                                 <div class="des">
                                     <span class="des1">55人</span>
-                                    <span class="des2">桌椅為教室型擺放</span>
+                                    <!-- <span class="des2">桌椅為教室型擺放</span> -->
                                 </div>
                             </div>
                         </div>
@@ -157,12 +155,12 @@
                             </div>
                             <div class="desContent des2">
                                 <div class="label">14:00-14:30</div>
-                                <div class="cont"><div class="contBox"><span>執行長陳茂嘉</span>處處有好食：如何為地方創生盡一份力？</div></div>
+                                <div class="cont"><div class="contBox"><span>好食好事基金會 執行長陳茂嘉</span>從淨零永續看食農創新</div></div>
                             </div>
                             <div class="desContent des3">
                                 <div class="label">14:30-15:00</div>
                                 <div class="cont">
-                                    <div class="contBox"><span>晶睿通訊 發言人暨全球行銷處長 謝邦彥</span>待定</div>
+                                    <div class="contBox"><span>VIVOTEK 發言人暨全球行銷處長 謝邦彥</span>踏上永續之路：走出獨特轉型 塑造品牌新風貌</div>
                                 </div>
                             </div>
                             <div class="desContent des4">
