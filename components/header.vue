@@ -94,7 +94,7 @@ console.log('currentRoute', localPath)
                     text-align: center;
                     display: flex;
                     align-items: center;
-                    padding: 0 24px;
+                    padding: 4px 24px;
                     margin-right:-1px;
                     color: #fff;
                     border-radius: 8px;
@@ -106,7 +106,7 @@ console.log('currentRoute', localPath)
                     }
                     @include mob-width {
                         font-size: vw(20,768);
-                        padding: 0 vw(24,768);
+                        padding: vw(4,768) vw(24,768);
                         border-radius: vw(8,768);
                     }
                 }
