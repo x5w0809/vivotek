@@ -6,7 +6,7 @@
     "homePage": "Home",
     "profilePage": "Profile",
     "logout": "Logout",
-    "footerTerm": "※主辦單位保有最終修改、變更、活動解釋及取消本活動之權利，若有相關異動將會公告於網站，恕不另行通知。",
+    "footerTerm": "※The Organizer reserves the right to change or modify events. Any modification will update on this website. ",
     "copyright": "© VIVOTEK Inc. All rights reserved.",
     "profile":{
         "title": "personal information",
@@ -17,5 +17,40 @@
         "phone":"Cell Phome",
         "homeTel":"Home Telphone",
         "submit": "submit"
+    },
+    "mainPage":{
+        "active":{
+            "title":"We Get The Picture – # Speed  # Transparency  # Quilaty  # Teamwork",
+            "subTitle1": "We're thrilled that many of you joined our events in 2023.",
+            "subTitle2": "Now, we're excited to unveil the theme for 2024: 'Global Village.' ",
+            "subTitle3": "With enhanced ESG concepts and event rules, we promise an even more immerse experience!",
+            "subTitle4": "",
+            "boxTitle1": "Newsroom",
+            "boxTitle2": "Point"
+        },
+        "Highlights":{
+            "title":"2023 Highlights",
+            "subTitle1":"A year full of memories, pictures and faces that will last forever.",
+            "subTitle2":"The strength of the team is each individual member.",
+            "subTitle3":"Check it out our outstanding achievement in 2023!",
+            "boxTitle1": "Data",
+            "data1":"Collected",
+            "data1sub":"photos",
+            "data2":"總參與人數",
+            "data3":"Steps",
+            "data4":"總積分",
+            "data5":"Energy Conservation",
+            "data5sub":"Tons C2O",
+            "data6":"Energy Conservation",
+            "data6sub":"C2O",
+            "data7":"LinkedIn Engagement",
+            "data7sub":"min",
+            "data8":"平均參與時間",
+            "data8sub":"min",
+            "boxTitle2": "Snapshots"
+        },
+        "event":{
+            "title":"2024 Events"
+        }
     }
 }

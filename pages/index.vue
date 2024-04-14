@@ -64,18 +64,19 @@
                     </div>
                     <div class="wrap">
                         <div class="infoTitle">
-                            <span>We Get The Picture – # 速度 、# 透明、 # 品質 、# 團隊合作</span>
+                            <span>{{ $t('mainPage.active.title') }}</span>
                         </div>
                         <div class="infoDes">
                             <span>
-                                我們深信企業文化是 VIVOTEK 的成功秘訣，也是營運向上成長的驅動力！<br />
-                                今年，我們的品牌活動以速度、透明、品質和團隊合作這四大核心文化為主軸，<br />
-                                傳遞獨特文化魅力，讓全球同仁透過活動「 Get the Picture 」！
+                                {{ $t('mainPage.active.subTitle1') }}<br />
+                                {{ $t('mainPage.active.subTitle2') }}<br />
+                                {{ $t('mainPage.active.subTitle3') }}<br />
+                                {{ $t('mainPage.active.subTitle4') }}
                             </span>
                         </div>
                         <div class="activeNews">
                             <div class="title">
-                                <span>活動快訊</span>
+                                <span>{{ $t('mainPage.active.boxTitle1') }}</span>
                             </div>
                             <div class="data">
                                 <div :class="`data__${index + 1} dataContent`" v-for="(item, index) in getActiveData" :key="'data' + index" data-anime>
@@ -95,7 +96,7 @@
                         </div>
                         <div class="point">
                             <div class="title">
-                                <span>年度積分</span>
+                                <span>{{ $t('mainPage.active.boxTitle2') }}</span>
                             </div>
                             <div class="data">
                                 <div class="des">
@@ -158,55 +159,59 @@
                 <section class="review">
                     <div class="wrap">
                         <div class="reviewTitle">
-                            <span>2023 活動亮點</span>
+                            <span>{{ $t('mainPage.Highlights.title') }}</span>
                         </div>
                         <div class="reviewDes">
                             <span>
-                                我們深信企業文化是 VIVOTEK 的成功秘訣，也是營運向上成長的驅動力！<br />
-                                今年，我們的品牌活動以速度、透明、品質和團隊合作這四大核心文化為主軸，<br />
-                                傳遞獨特文化魅力，讓全球同仁透過活動「 Get the Picture 」！
+                                {{ $t('mainPage.Highlights.subTitle1') }}<br />
+                                {{ $t('mainPage.Highlights.subTitle2') }}<br />
+                                {{ $t('mainPage.Highlights.subTitle3') }}
                             </span>
                         </div>
                         <div class="reviewDataContent">
                             <div class="title">
-                                <span>數據回顧</span>
+                                <span>{{ $t('mainPage.Highlights.boxTitle1') }}</span>
                             </div>
                             <div class="data">
                                 <div class="detail">
                                     <div class="reviewData reviewData1 reviewData_pc">
-                                        <div class="dataTitle">總共蒐集</div>
-                                        <div class="dataNum"><span class="dataNumCount">173</span><div class="sText stext_pc">張</div></div>
+                                        <div class="dataTitle">{{ $t('mainPage.Highlights.data1') }}</div>
+                                        <div class="dataNum"><span class="dataNumCount">173</span><div class="sText stext_pc">{{ $t('mainPage.Highlights.data1sub') }}</div></div>
                                     </div>
-                                    <div class="reviewData reviewData6 reviewData_mb">
-                                        <div class="dataTitle">總參與人數</div>
+                                    <div class="reviewData reviewData2 reviewData_mb">
+                                        <div class="dataTitle">{{ $t('mainPage.Highlights.data2') }}</div>
                                         <div class="dataNum"><span class="dataNumCount">3000</span></div>
                                     </div>
-                                    <div class="reviewData reviewData2 reviewData_pc">
-                                        <div class="dataTitle">總步數</div>
+                                    <div class="reviewData reviewData3 reviewData_pc">
+                                        <div class="dataTitle">{{ $t('mainPage.Highlights.data3') }}</div>
                                         <div class="dataNum"><span class="dataNumCount">82436961</span></div>
                                     </div>
-                                    <div class="reviewData reviewData5 reviewData_mb">
-                                        <div class="dataTitle">總積分</div>
+                                    <div class="reviewData reviewData4 reviewData_mb">
+                                        <div class="dataTitle">{{ $t('mainPage.Highlights.data4') }}</div>
                                         <div class="dataNum"><span class="dataNumCount">10000</span></div>
                                     </div>
-                                    <div class="reviewData reviewData3">
-                                        <div class="dataTitle">節省能源</div>
-                                        <div class="dataNum"><span class="dataNumCount">11.7</span><div class="sText">頓C2O</div></div>
+                                    <div class="reviewData reviewData5 reviewData_pc">
+                                        <div class="dataTitle">{{ $t('mainPage.Highlights.data5') }}</div>
+                                        <div class="dataNum"><span class="dataNumCount">11.7</span><div class="sText">{{ $t('mainPage.Highlights.data5sub') }}</div></div>
                                     </div>
-                                    <div class="reviewData reviewData4 reviewData_pc">
-                                        <div class="dataTitle">LinkedIn 社群互動</div>
-                                        <div class="dataNum"><span class="dataNumCount">4224</span><div class="sText">min</div></div>
+                                    <div class="reviewData reviewData6 reviewData_mb">
+                                        <div class="dataTitle">{{ $t('mainPage.Highlights.data6') }}</div>
+                                        <div class="dataNum"><span class="dataNumCount">9999</span><div class="sText">{{ $t('mainPage.Highlights.data6sub') }}</div></div>
                                     </div>
-                                    <div class="reviewData reviewData4 reviewData_mb">
-                                        <div class="dataTitle">平均參與時間</div>
-                                        <div class="dataNum"><span class="dataNumCount">9999</span><div class="sText">min</div></div>
+                                    <div class="reviewData reviewData7 reviewData_pc">
+                                        <div class="dataTitle">{{ $t('mainPage.Highlights.data7') }}</div>
+                                        <div class="dataNum"><span class="dataNumCount">4224</span><div class="sText">{{ $t('mainPage.Highlights.data7sub') }}</div></div>
+                                    </div>
+                                    <div class="reviewData reviewData8 reviewData_mb">
+                                        <div class="dataTitle">{{ $t('mainPage.Highlights.data8') }}</div>
+                                        <div class="dataNum"><span class="dataNumCount">9999</span><div class="sText">{{ $t('mainPage.Highlights.data8sub') }}</div></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="picture">
                             <div class="title">
-                                <span>活動花絮</span>
+                                <span>{{ $t('mainPage.Highlights.boxTitle2') }}</span>
                             </div>
                         </div>
                     </div>
@@ -224,7 +229,7 @@
                 <section class="active">
                     <div class="wrap">
                         <div class="activeTitle">
-                            <span>2024 精彩活動</span>
+                            <span>{{ $t('mainPage.event.title') }}</span>
                         </div>
                         <div class="activeContent">
                             <div :class="`active__${index + 1} activeBox`" v-for="(item, index) in activeCard" :key="'activeCard' + index" >

@@ -17,5 +17,40 @@
         "phone":"手機號碼",
         "homeTel":"家庭電話",
         "submit": "編輯資料"
+    },
+    "mainPage":{
+        "active":{
+            "title":"We Get The Picture – # 速度 、# 透明、 # 品質 、# 團隊合作",
+            "subTitle1": "2023年，我們辦了一系列活動，感謝  VIVOTEKers 積極參與，創造許多美好回憶。",
+            "subTitle2": "今年，我們將活動主題定調為「世界地球村」，帶來一系列精彩活動！",
+            "subTitle3": "更有趣、更活潑、更精彩，優化活動辦法及計分規則",
+            "subTitle4": "一樣緊扣 #速度 #透明 #品質 以及 #團隊合作，請準備好迎接新一波的旅程，身體力行 ESG 概念！",
+            "boxTitle1": "活動快訊",
+            "boxTitle2": "年度積分"
+        },
+        "Highlights":{
+            "title":"2023 活動亮點",
+            "subTitle1":"我們深信企業文化是 VIVOTEK 的成功秘訣，也是營運向上成長的驅動力！",
+            "subTitle2":"今年，我們的品牌活動以速度、透明、品質和團隊合作這四大核心文化為主軸，",
+            "subTitle3":"傳遞獨特文化魅力，讓全球同仁透過活動「 Get the Picture 」！",
+            "boxTitle1": "數據回顧",
+            "data1":"總共蒐集",
+            "data1sub":"張",
+            "data2":"總參與人數",
+            "data3":"總步數",
+            "data4":"總積分",
+            "data5":"節省能源",
+            "data5sub":"頓C2O",
+            "data6":"節省能源",
+            "data6sub":"C2O",
+            "data7":"LinkedIn 社群互動",
+            "data7sub":"min",
+            "data8":"平均參與時間",
+            "data8sub":"min",
+            "boxTitle2": "活動花絮"
+        },
+        "event":{
+            "title":"2024 精彩活動"
+        }
     }
 }
