@@ -68,5 +68,26 @@ class ApiSettings {
         }
       }
     }
+    /**
+     * @template T requestModel
+     * @template U responeModel
+     * @param {boolean} auth 是否需要檢查登入token
+     * @returns {U} Promise
+     */
+    put<T = any, U = any>(auth: boolean = false) {
+      const apiPath = this.getApiPath()
+      const defaultOptions = this.getDefaultOptions()
+      return async (app: { $vivotekApiInAuth: { put: (arg0: { apiPath: string; payload: T; options: any }) => U | PromiseLike<U> }; $vivotekApi: { $put: (arg0: string, arg1: T, arg2: any) => U | PromiseLike<U> } }, payload: T, options?: any): Promise<U> => {
+        const o = { ...defaultOptions, ...options }
+        if (auth) {
+          const a = { apiPath, payload, options: o }
+          const response: U = await app.$vivotekApiInAuth.put(a)
+          return response
+        } else {
+          const response: U = await app.$vivotekApi.$put(apiPath, payload, o)
+          return response
+        }
+      }
+    }
   }
   

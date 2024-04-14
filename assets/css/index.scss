@@ -119,6 +119,8 @@
                 @for $i from 1 through 4 {
                     .cIcon__#{$i} {
                         &-anime {
+                            opacity: 0;
+                            background-position: bottom;
                             position: absolute;
                             $w: 56px;
                             $h: 166px;
@@ -188,6 +190,8 @@
                 @for $i from 1 through 5 {
                     .camera__#{$i} {
                         &-anime {
+                            transform: scale(0);
+                            background-position: bottom;
                             position: absolute;
                             $w: 80px;
                             $h: 80px;

@@ -59,16 +59,24 @@ import useGlobalStore from "../store/index";
 import LoginRequestModel from '@/models/api/account/LoginRequestModel'
 import { loginToken } from "~/api/auth";
 const { locale, setLocale } = useI18n();
+const storeData = useGlobalStore();
 const router = useRouter();
 const emailData = ref();
 const idData = ref();
 const isLoading = ref();
+const localePath = useLocalePath()
+console.log('localePath',localePath({ name: 'login' }))
 //檢查是否登入成功
-// const { $checkLogin } = useNuxtApp()
-// const checkLogin = await $checkLogin()
-// if(checkLogin){
-//     navigateTo('/')
-// }
+
+storeData.login = true
+
+const { $checkLogin } = useNuxtApp()
+const checkLogin = await $checkLogin()
+if(checkLogin){
+    storeData.login = false
+    await navigateTo(localePath({ name: 'index' }))
+}
+
 //檢查是否登入成功-end
 isLoading.value = false
 const login = async () => {
@@ -82,7 +90,8 @@ const login = async () => {
         const access_token = useCookie('access_token',{maxAge:3600})
         access_token.value = res.data._value.access_token
         isLoading.value = false
-        location.href = `/${locale.value}`
+        storeData.login = false
+        await navigateTo(localePath({ name: 'index' }))
     }else {
         alert('登入失敗')
         isLoading.value = false

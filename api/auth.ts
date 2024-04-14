@@ -25,4 +25,13 @@ const getPersonalInfo = (params: any, options?:any) => {
   return httpRequest.get(profileURL, params,options);
 };
 
-export { getPersonalInfo, loginToken };
+/**
+ * 員工資料更新
+ * @returns
+ */
+
+const putPersonalInfo = (params: any, options?:any) => {
+  return httpRequest.Put(profileURL, params, options);
+};
+
+export { putPersonalInfo, getPersonalInfo, loginToken };

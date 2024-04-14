@@ -1,5 +1,5 @@
 <template>
-    <div id="headerBar" v-if="currentRoute != '/'+localPath+'/login'" >
+    <div id="headerBar" v-if="!storeData.login" >
         <div class="wrap">
             <div class="logo">
                 <img src="/headerLogo.svg" alt="vivotek">
@@ -19,10 +19,10 @@
                     </div>
                 </div>
                 <div class="headerBtnBox">
-                    <nuxt-link class="headerBtn" :to="'/' + locale + '/profile'">{{ $t('profilePage') }}</nuxt-link> 
+                    <nuxt-link class="headerBtn" :to="localePath({ name: 'profile' })">{{ $t('profilePage') }}</nuxt-link> 
                 </div>
                 <div class="headerBtnBox">
-                    <div ><span class="headerBtn">{{ $t('logout') }}</span></div>
+                    <div ><span class="headerBtn" @click="logout">{{ $t('logout') }}</span></div>
                 </div>
             </div>
         </div>
@@ -32,7 +32,6 @@
 import { storeToRefs } from "pinia";
 import useGlobalStore from "../store/index";
 const { locale, setLocale } = useI18n();
-console.log(locale.value)
 const storeData = useGlobalStore();
 const route = useRoute();
 let { lan } = storeToRefs(storeData);
@@ -40,15 +39,22 @@ let localPath = ref();
 localPath = locale._value;
 let currentRoute = ref();
 currentRoute = route.path
+const localePath = useLocalePath()
 
-console.log('currentRoute', localPath)
-// isLogin.value = false;
-// const checkLogin = () => {
-//     if (!isLogin.value) {
-//         router.push({ path: `${locale.value}/login` });
-//     }
-// };
+console.log('storeData.login', storeData.login)
+const isLogin = ref(false)
+if(localePath({ name: 'login' }) == route.path){
+    isLogin.value = true
+}else {
+    isLogin.value=false
+}
 
+const logout =  (async()=>{
+    const queryToken = await useCookie('access_token')
+    queryToken.value = null
+    storeData.login = true
+    await navigateTo(localePath({ name: 'login' }))
+})
 
 </script>
 <style lang="scss" scoped>

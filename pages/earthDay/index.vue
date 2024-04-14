@@ -187,22 +187,28 @@
 import { storeToRefs } from "pinia";
 import useGlobalStore from "../store/index";
 const { locale, setLocale } = useI18n();
+const storeData = useGlobalStore();
 const router = useRouter();
+const localePath = useLocalePath()
 const isLoading = ref();
 isLoading.value = true;
 //檢查是否登入成功
 const { $checkLogin } = useNuxtApp()
 const checkLogin = await $checkLogin()
+if(!checkLogin){
+    storeData.login = true
+    await navigateTo(localePath({ name: 'login' }))
+}
+const userData = reactive({
+        id: checkLogin.id,
+        email: checkLogin.email,
+        name: checkLogin.name,
+        name_en: checkLogin.name_en,
+        phone: checkLogin.phone,
+        office_tel: checkLogin.office_tel
+})
 isLoading.value =  false;
 //檢查是否登入成功-end
-const userData = reactive({
-    id: checkLogin.id,
-    email: checkLogin.email,
-    name: checkLogin.name,
-    name_en: checkLogin.name_en,
-    phone: checkLogin.phone,
-    office_tel: checkLogin.office_tel
-})
 const brandData= reactive([
     {
         img:'/earth/Logo1.png',

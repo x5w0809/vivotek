@@ -1,5 +1,5 @@
 <template>
-    <div id="footer" v-if="currentRoute != '/'+localPath+'/login'" >
+    <div id="footer" v-if="!storeData.login" >
         <div class="wrap">
             <div class="term">{{ $t('footerTerm') }}</div>
             <div class="shareBox">

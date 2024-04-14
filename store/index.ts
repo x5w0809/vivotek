@@ -19,13 +19,11 @@ import LoginRequestModel from '~/models/api/account/LoginRequestModel'
 
 export default defineStore('globalStore', {
     state: () => ({
-        lan: '',
-        newsUrl: '/news'
+        login: false,
     }),
     actions: {
-      lanChange(lan:any) {
-        this.lan = lan
-        this.newsUrl =  lan+'/news'
+      loginChange(lan:any) {
+        this.login = !this.login
       },
     },
   })

@@ -241,18 +241,25 @@
 <script setup>
 import { useRouter } from "vue-router";
 import { onMounted } from "vue";
+import  useGlobalStore  from '../store/index';
 import { storeToRefs } from "pinia";
 const router = useRouter();
-//import  useGlobalStore  from '../store/index';
+
 const { locale, setLocale } = useI18n();
-// const storeData = useGlobalStore()
-// storeData.lan = ''
+const storeData = useGlobalStore();
 //const  news  = await useAsyncData(() => $fetch('https://www.travel.taipei/open-api/en/Events/News?begin=1992-05-05&end=2023-08-05&page=1',{method: 'GET',headers: headers,}))
 //檢查是否登入成功
 const localCode = ref()
+const localePath = useLocalePath()
 const { $checkLogin, $anime } = useNuxtApp()
 const checkLogin = await $checkLogin()
-localCode.value = checkLogin.legal_entity_code
+if(checkLogin){
+    localCode.value = checkLogin.legal_entity_code
+} else {
+    storeData.login = true
+    await navigateTo(localePath({ name: 'login' }))
+}
+
 //檢查是否登入成功-end
 const swiperConfig = {
     modules: [ SwiperAutoplay,SwiperNavigation, SwiperEffectCreative ],
@@ -383,6 +390,46 @@ const activeData = reactive([
         des: '我們必須全方位了解身處的環境，並採取具體行動。\n透明一直是 VIVOTEK 企業文化的核心，透過綠色市集和永續講堂，能為員工們提供更多對地球永續發展的見解，唯有積極了解，才有機會啟發創新思維，並產生精準作為，邁向一個更永續的明天。',
     }
 ])
+const iconRun = (()=>{
+    $anime({
+        targets: '.cIcon__1-anime',
+        translateY: 20,
+        loop:true,
+        direction: 'alternate',
+        // delay:function() {
+        //     return $anime.random(500, 1800);
+        // },
+        duration:600,
+        easing:'linear'
+    })
+    $anime({
+        targets: '.cIcon__2-anime',
+        translateY: 20,
+        loop:true,
+        direction: 'alternate',
+        delay: 100,
+        duration:700,
+        easing:'linear'
+    })
+    $anime({
+        targets: '.cIcon__3-anime',
+        translateY: 20,
+        loop:true,
+        direction: 'alternate',
+        delay: 200,
+        duration:800,
+        easing:'linear'
+    })
+    $anime({
+        targets: '.cIcon__4-anime',
+        translateY: 20,
+        loop:true,
+        direction: 'alternate',
+        delay: 100,
+        duration:600,
+        easing:'linear'
+    })
+})
 let tl
 onMounted(() => {
     tl = $anime.timeline({})
@@ -428,6 +475,29 @@ onMounted(() => {
         duration:500,
         easing:'easeOutCubic'
     },'-=400')
+    tl.add({
+        targets: '.cameraAnime',
+        translateY: [200,0],
+        scale: [0,1],
+        delay:function() {
+            return $anime.random(100, 600);
+        },
+        duration:400,
+        easing:'cubicBezier(.31, .73, .57, 1.55)'
+    },'-=500')
+    tl.add({
+        targets: '.cIconAnime',
+        opacity:[0,1],
+        delay:function() {
+            return $anime.random(100, 600);
+        },
+        duration:400,
+        easing:'linear',
+        complete: function(anim) {
+            iconRun()
+        }
+    },'-=400')
+    
 })
 
 
