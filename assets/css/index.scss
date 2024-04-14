@@ -745,12 +745,14 @@
                                     }
                                 }
                                 .dataNum{
+                                    display: flex;
+                                    align-items: end;
                                     font-size: 48px;
                                     color: #465AFF;
                                     @include mob-width {
                                         font-size: vw(48,768);
                                     }
-                                    span{
+                                    .sText{
                                         font-size: 20px;
                                         color: #BDBDBD;
                                         @include mob-width {

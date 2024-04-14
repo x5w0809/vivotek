@@ -6,7 +6,7 @@
             </div>
             <div class="navBar">
                 <div class="headerBtnBox">
-                    <nuxt-link class="headerBtn" :to="'/' + locale">{{ $t('homePage') }}</nuxt-link>
+                    <nuxt-link class="headerBtn" :to="localePath({ name: 'index' })">{{ $t('homePage') }}</nuxt-link>
                 </div>
                 <div class="headerBtnBox">
                     <div>

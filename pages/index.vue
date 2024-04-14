@@ -175,19 +175,19 @@
                                 <div class="detail">
                                     <div class="reviewData reviewData1">
                                         <div class="dataTitle">總參與人數</div>
-                                        <div class="dataNum">3000</div>
+                                        <div class="dataNum"><span class="dataNumCount">3000</span></div>
                                     </div>
                                     <div class="reviewData reviewData2">
                                         <div class="dataTitle">總積分</div>
-                                        <div class="dataNum">10000</div>
+                                        <div class="dataNum"><span class="dataNumCount">10000</span></div>
                                     </div>
                                     <div class="reviewData reviewData3">
                                         <div class="dataTitle">節省能源</div>
-                                        <div class="dataNum">9999<span>C2O</span></div>
+                                        <div class="dataNum"><span class="dataNumCount">9999</span><div class="sText">C2O</div></div>
                                     </div>
                                     <div class="reviewData reviewData4">
                                         <div class="dataTitle">平均參與時間</div>
-                                        <div class="dataNum">9999<span>min</span></div>
+                                        <div class="dataNum"><span class="dataNumCount">9999</span><div class="sText">min</div></div>
                                     </div>
                                 </div>
                             </div>
@@ -251,7 +251,8 @@ const storeData = useGlobalStore();
 //檢查是否登入成功
 const localCode = ref()
 const localePath = useLocalePath()
-const { $checkLogin, $anime } = useNuxtApp()
+const { $checkLogin, $anime, $gsap, $ScrollTrigger } = useNuxtApp()
+
 const checkLogin = await $checkLogin()
 if(checkLogin){
     localCode.value = checkLogin.legal_entity_code
@@ -269,13 +270,26 @@ const swiperConfig = {
         disableOnInteraction: false,
         pauseOnMouseEnter: true,
     },
-    slidesPerView: 3,
+    slidesOffsetBefore: 120,
+    slidesOffsetAfter : 60,
+    slidesPerView: 2,
     spaceBetween: 16,
     breakpoints:{
         768: {
-            slidesPerView: 5,
-            // slidesPerGroup: 3,
+            slidesPerView: 3,
+            slidesOffsetBefore: 140,
+            slidesOffsetAfter : 70,
         },
+        1280:{
+            slidesPerView: 4,
+            slidesOffsetBefore: 200,
+            slidesOffsetAfter : 100,
+        },
+        1600:{
+            slidesPerView: 4,
+            slidesOffsetBefore: 240,
+            slidesOffsetAfter : 120,
+        }
     }
 };
 const activeNews = reactive([
@@ -498,6 +512,25 @@ onMounted(() => {
         }
     },'-=400')
     
+    
+    const visionAnime = $gsap.from('.dataNumCount', {
+        textContent: 0,
+        duration: 10,
+        ease: 'expo.out',
+        snap: { textContent: 1 },
+        //stagger: 1,
+    });
+    // window.addEventListener('scroll',()=>{
+    //     if()
+    // })
+    $ScrollTrigger.create({
+        trigger: '.review',
+        animation: visionAnime,
+        start: '10% 20%',
+        end: '10% 50%',
+        ease: 'power3.out',
+        scrub: 1,
+    })
 })
 
 
