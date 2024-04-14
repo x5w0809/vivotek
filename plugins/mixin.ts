@@ -1,7 +1,7 @@
 import { storeToRefs } from "pinia";
 import useGlobalStore from "../store/index";
 import LoginRequestModel from "@/models/api/account/LoginRequestModel";
-import { loginToken,getPersonalInfo, putPersonalInfo } from "~/api/auth";
+import { loginToken,getPersonalInfo, putPersonalInfo, getPoint, getActiveData } from "~/api/auth";
 
 export default defineNuxtPlugin(nuxtApp => {
     //檢查登入狀態
@@ -13,8 +13,9 @@ export default defineNuxtPlugin(nuxtApp => {
                     'Authorization':`Bearer ${queryToken.value}`
                 }
                 const userData: any = await getPersonalInfo({}, {headers})
-                if(userData.data._value.success){
-                    return userData.data._value.user
+                const pointData: any = await getPoint({},{headers})
+                if(userData.data._value.success && pointData.data._value.success){
+                    return [userData.data._value.user, pointData.data._value]
                 } else {
                     alert('個人資料取得錯誤')
                 }
@@ -23,7 +24,7 @@ export default defineNuxtPlugin(nuxtApp => {
             console.log(error);
         }
     })
-    //檢查登入狀態
+    //更新個資
     nuxtApp.provide('putPersonalInfo', async (userData: { name: any; name_en: any; phone: any; office_tel: any; data: { _value: { success: any; user: any; }; }; }) => {
         try {
             const queryToken = await useCookie('access_token')
@@ -54,7 +55,23 @@ export default defineNuxtPlugin(nuxtApp => {
             console.log(error);
         }
     })
-    
+    //獲取活動公布事項
+    nuxtApp.provide('getActive', async () => {
+        try {
+            const queryToken = await useCookie('access_token')
+            if(queryToken.value){
+                const headers = {
+                    'Authorization':`Bearer ${queryToken.value}`
+                }
+                const activeData: any = await getActiveData({}, {headers})
+                if(activeData.data._value.success){
+                    return activeData.data._value.collection
+                }
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    })
 })
 
 

@@ -81,12 +81,12 @@ if(!checkLogin){
     await navigateTo(localePath({ name: 'login' }))
 }
 const userData = reactive({
-    id: checkLogin.id,
-    email: checkLogin.email,
-    name: checkLogin.name,
-    name_en: checkLogin.name_en,
-    phone: checkLogin.phone,
-    office_tel: checkLogin.office_tel
+    id: checkLogin[0].id,
+    email: checkLogin[0].email,
+    name: checkLogin[0].name,
+    name_en: checkLogin[0].name_en,
+    phone: checkLogin[0].phone,
+    office_tel: checkLogin[0].office_tel
 })
 isLoading.value =  false;
 //檢查是否登入成功-end

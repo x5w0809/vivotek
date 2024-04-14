@@ -680,7 +680,7 @@
                 padding: vw(120,768) 0;
             }
             .wrap{
-                max-width: 850px;
+                max-width: 1000px;
                 width: 100%;
                 margin: auto;
                 @include mob-width {
@@ -759,6 +759,17 @@
                                             font-size: vw(20,768);
                                         }
                                     }
+                                }
+                            }
+                            .reviewData_pc{
+                                @include mob-width {
+                                    display: none;
+                                }
+                            }
+                            .reviewData_mb{
+                                display: none;
+                                @include mob-width {
+                                    display: flex;
                                 }
                             }
                         }

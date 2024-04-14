@@ -34,4 +34,25 @@ const putPersonalInfo = (params: any, options?:any) => {
   return httpRequest.Put(profileURL, params, options);
 };
 
-export { putPersonalInfo, getPersonalInfo, loginToken };
+/**
+ * 員工點數
+ * @returns
+ */
+
+const pointURL = "/api/my/points";
+const getPoint = (params: any, options?:any) => {
+  return httpRequest.get(pointURL, params,options);
+};
+
+
+/**
+ * 活動公布資料
+ * @returns
+ */
+
+const activeURL = "/api/upcoming-events";
+const getActiveData = (params: any, options?:any) => {
+  return httpRequest.get(activeURL, params,options);
+};
+
+export { getActiveData, getPoint, putPersonalInfo, getPersonalInfo, loginToken };

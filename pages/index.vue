@@ -78,18 +78,18 @@
                                 <span>活動快訊</span>
                             </div>
                             <div class="data">
-                                <div :class="`data__${index + 1} dataContent`" v-for="(item, index) in activeNews" :key="'data' + index" data-anime>
-                                    <a :href="item.url">
+                                <div :class="`data__${index + 1} dataContent`" v-for="(item, index) in getActiveData" :key="'data' + index" data-anime>
+                                    <nuxt-link :to="localePath({ name: 'profile' })">
                                         <div class="boxContent">
                                             <div class="box1">
-                                                <span :class="`date__${index + 1}-anime dateAnime`">{{ item.date }}</span>
-                                                <span :class="`des__${index + 1}-anime desAnime`">{{ item.name }}</span>
+                                                <span :class="`date__${index + 1}-anime dateAnime`">{{ item.event_date }}</span>
+                                                <span :class="`des__${index + 1}-anime desAnime`">{{ item.title }}</span>
                                             </div>
                                             <div class="box2">
                                                 <span class="desIcon"></span>
                                             </div>
                                         </div>
-                                    </a>
+                                    </nuxt-link>
                                 </div>
                             </div>
                         </div>
@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="detail">
                                     <div class="rank1 rankcontent">
-                                        <div class="rankNum">81</div>
+                                        <div class="rankNum">{{ pointData.ultimate_explorer }}</div>
                                         <div class="rankTitle">全球特搜王</div>
                                     </div>
                                     <!-- 暫不開啟 -->
@@ -115,11 +115,11 @@
                                     </div> -->
                                     <!-- 暫不開啟-end -->
                                     <div class="rank3 rankcontent">
-                                        <div class="rankNum">5</div>
+                                        <div class="rankNum">{{ pointData.rank }}</div>
                                         <div class="rankTitle">總排名</div>
                                     </div>
                                     <div class="rank4 rankcontent">
-                                        <div class="rankNum">90</div>
+                                        <div class="rankNum">{{ pointData.annual_total }}</div>
                                         <div class="rankTitle">年度總積分</div>
                                     </div>
                                 </div>
@@ -173,19 +173,31 @@
                             </div>
                             <div class="data">
                                 <div class="detail">
-                                    <div class="reviewData reviewData1">
+                                    <div class="reviewData reviewData1 reviewData_pc">
+                                        <div class="dataTitle">總共蒐集</div>
+                                        <div class="dataNum"><span class="dataNumCount">173</span><div class="sText stext_pc">張</div></div>
+                                    </div>
+                                    <div class="reviewData reviewData6 reviewData_mb">
                                         <div class="dataTitle">總參與人數</div>
                                         <div class="dataNum"><span class="dataNumCount">3000</span></div>
                                     </div>
-                                    <div class="reviewData reviewData2">
+                                    <div class="reviewData reviewData2 reviewData_pc">
+                                        <div class="dataTitle">總步數</div>
+                                        <div class="dataNum"><span class="dataNumCount">82436961</span></div>
+                                    </div>
+                                    <div class="reviewData reviewData5 reviewData_mb">
                                         <div class="dataTitle">總積分</div>
                                         <div class="dataNum"><span class="dataNumCount">10000</span></div>
                                     </div>
                                     <div class="reviewData reviewData3">
                                         <div class="dataTitle">節省能源</div>
-                                        <div class="dataNum"><span class="dataNumCount">9999</span><div class="sText">C2O</div></div>
+                                        <div class="dataNum"><span class="dataNumCount">11.7</span><div class="sText">頓C2O</div></div>
                                     </div>
-                                    <div class="reviewData reviewData4">
+                                    <div class="reviewData reviewData4 reviewData_pc">
+                                        <div class="dataTitle">LinkedIn 社群互動</div>
+                                        <div class="dataNum"><span class="dataNumCount">4224</span><div class="sText">min</div></div>
+                                    </div>
+                                    <div class="reviewData reviewData4 reviewData_mb">
                                         <div class="dataTitle">平均參與時間</div>
                                         <div class="dataNum"><span class="dataNumCount">9999</span><div class="sText">min</div></div>
                                     </div>
@@ -215,7 +227,7 @@
                             <span>2024 精彩活動</span>
                         </div>
                         <div class="activeContent">
-                            <div :class="`active__${index + 1} activeBox`" v-for="(item, index) in activeData" :key="'activeCard' + index" >
+                            <div :class="`active__${index + 1} activeBox`" v-for="(item, index) in activeCard" :key="'activeCard' + index" >
                                 <div :class="`activeCard__${index + 1} activeCard`" v-if="localCode === 'TW' || item.title != '晶睿地球日'"  data-anime>
                                     <a :href="item.url">
                                         <div :class="`activeCard__${index + 1}-anime`">
@@ -248,18 +260,34 @@ const router = useRouter();
 const { locale, setLocale } = useI18n();
 const storeData = useGlobalStore();
 //const  news  = await useAsyncData(() => $fetch('https://www.travel.taipei/open-api/en/Events/News?begin=1992-05-05&end=2023-08-05&page=1',{method: 'GET',headers: headers,}))
-//檢查是否登入成功
+//引入共用function
+const { $checkLogin, $getActive, $anime, $gsap, $ScrollTrigger } = useNuxtApp()
+
 const localCode = ref()
 const localePath = useLocalePath()
-const { $checkLogin, $anime, $gsap, $ScrollTrigger } = useNuxtApp()
-
+//登入確認及獲取個人資料
+const pointData = reactive({
+    ultimate_explorer: 0,
+    net_zero_walker: 0,
+    annual_total: 0,
+    rank: 0,
+})
 const checkLogin = await $checkLogin()
 if(checkLogin){
-    localCode.value = checkLogin.legal_entity_code
+    localCode.value = checkLogin[0].legal_entity_code
+    pointData.ultimate_explorer = checkLogin[1].points.ultimate_explorer
+    pointData.net_zero_walker = checkLogin[1].points.net_zero_walker
+    pointData.annual_total = checkLogin[1].points.annual_total
+    pointData.rank = checkLogin[1].rank
 } else {
     storeData.login = true
     await navigateTo(localePath({ name: 'login' }))
 }
+
+//取得活動資料
+const getActiveData = await $getActive()
+console.log('getActiveData',getActiveData)
+
 
 //檢查是否登入成功-end
 const swiperConfig = {
@@ -388,7 +416,7 @@ const rankingData = reactive([
         change: "0"
     },
 ])
-const activeData = reactive([
+const activeCard = reactive([
     {
         img:'/main/active1.png',
         url:'/profile',
@@ -520,16 +548,14 @@ onMounted(() => {
         snap: { textContent: 1 },
         //stagger: 1,
     });
-    // window.addEventListener('scroll',()=>{
-    //     if()
-    // })
     $ScrollTrigger.create({
         trigger: '.review',
         animation: visionAnime,
-        start: '10% 20%',
-        end: '10% 50%',
+        start: '0% 30%',
+        end: '30% 60%',
         ease: 'power3.out',
         scrub: 1,
+        // markers: true,
     })
 })
 
